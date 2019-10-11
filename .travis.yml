@@ -1,3 +1,4 @@
+language: C
 matrix:
   include:
     # works on Precise and Trusty
