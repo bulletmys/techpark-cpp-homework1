@@ -1,7 +1,4 @@
 /home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/bulletmys/CLionProjects/techpatk-cpp-dz1
-CMake Error at CMakeLists.txt:25 (message):
-  Unsupported CPU:
-
-
--- Configuring incomplete, errors occurred!
-See also "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/CMakeFiles/CMakeOutput.log".
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/bulletmys/CLionProjects/techpatk-cpp-dz1

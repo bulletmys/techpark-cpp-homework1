@@ -1,0 +1,3 @@
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/CMakeFiles/rebuild_cache.dir
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/CMakeFiles/techpatk_cpp_dz1.dir
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/CMakeFiles/edit_cache.dir
