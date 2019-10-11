@@ -10,10 +10,15 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../lib/googletest-master/googlemock/include"
+  "../lib/googletest-master/googletest/include"
+  "../lib/googletest-master/googletest"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

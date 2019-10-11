@@ -6,13 +6,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
-
-typedef struct Country {
-    char *name_of_country;
-    size_t square;
-    size_t population;
-    char *capital;
-} Country;
+#include "main.h"
 
 char Input_char() {
     char c = '\0';
@@ -71,20 +65,42 @@ int Input_int() {
     return result;
 }
 
-int Compare(const void *x1, const void *x2) {
-    float p_1 = (float) (*(Country *) x1).population / (*(Country *) x1).square;
-    float p_2 = (float) (*(Country *) x2).population / (*(Country *) x2).square;
+//int Compare(const void *x1, const void *x2) { Компаратор для qsort
+//    float p_1 = (float) (*(Country *) x1).population / (*(Country *) x1).square;
+//    float p_2 = (float) (*(Country *) x2).population / (*(Country *) x2).square;
+//
+//    if (p_1 > p_2) {
+//        return 1;
+//    } else if (p_1 < p_2) {
+//        return -1;
+//    }
+//    return 0;
+//}
 
-    if (p_1 > p_2) {
-        return 1;
-    } else if (p_1 < p_2) {
-        return -1;
+void sortAndPrint(Country country[], int N)
+{
+    // сортировка пузырьком
+    Country tmp;
+
+    for (int i = N - 1; i >= 0; i--)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            // сравниваем элементы массива структур по сумме баллов студента
+            if (country[j].density > country[j + 1].density)
+            {
+                tmp = country[j];
+                country[j] = country[j + 1];
+                country[j + 1] = tmp;
+            }
+        }
     }
-    return 0;
+
 }
 
 void SortByDensity(Country *countries, int num_of_countries) {
-    qsort(countries, num_of_countries, sizeof(Country), Compare);
+    //qsort(countries, num_of_countries, sizeof(Country), Compare);
+    sortAndPrint(countries, num_of_countries);
 }
 
 void PrintCountries(Country *countries, int num_of_countries, int start) {
@@ -110,7 +126,7 @@ Country *AddCountry(Country *countries, int *cur_num) {
     printf("How many countries do you want to add?\n");
     int num_of_new = Input_int();
 
-    countries = realloc(countries, sizeof(Country) * (num + num_of_new));
+    countries = (Country *)realloc(countries, sizeof(Country) * (num + num_of_new));
 
     for (int i = num; i < num_of_new + num; ++i) {
         printf("Enter country name\n");
@@ -130,7 +146,7 @@ Country *AddCountry(Country *countries, int *cur_num) {
 }
 
 
-int main() {
+int MAIN() {
     int num_of_countries = 6;
 
     Country *countries;
@@ -141,36 +157,47 @@ int main() {
         countries[0].name_of_country = "Russia";
         countries[0].population = 140000000;
         countries[0].square = 17125191;
+        countries[0].density = countries[0].population / countries[0].square;;
     }
     {
         countries[1].capital = "Berlin";
         countries[1].name_of_country = "Germany";
         countries[1].population = 83019200;
         countries[1].square = 357385;
+        countries[1].density = countries[1].population / countries[1].square;;
+
     }
     {
         countries[2].capital = "Washington";
         countries[2].name_of_country = "USA";
         countries[2].population = 328915700;
         countries[2].square = 9826675;
+        countries[2].density = countries[2].population / countries[2].square;;
+
     }
     {
         countries[3].capital = "Paris";
         countries[3].name_of_country = "France";
         countries[3].population = 65060692;
         countries[3].square = 640679;
+        countries[3].density = countries[3].population / countries[3].square;;
+
     }
     {
         countries[4].capital = "Rome";
         countries[4].name_of_country = "Italy";
         countries[4].population = 60588366;
         countries[4].square = 301340;
+        countries[4].density = countries[4].population / countries[4].square;;
+
     }
     {
         countries[5].capital = "Minsk";
         countries[5].name_of_country = "Belarus";
         countries[5].population = 9475174;
         countries[5].square = 207595;
+        countries[5].density = countries[5].population / countries[5].square;;
+
     }
 
     bool flag = true;

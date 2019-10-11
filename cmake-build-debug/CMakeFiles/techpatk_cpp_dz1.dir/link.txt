@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/techpatk_cpp_dz1.dir/main.c.o  -o techpatk_cpp_dz1 
+/usr/bin/c++  -g   CMakeFiles/techpatk_cpp_dz1.dir/main.c.o  -o techpatk_cpp_dz1  -L/usr/lib/gcc/x86_64-linux-gnu/7 lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a -lpthread 
