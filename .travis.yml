@@ -39,8 +39,6 @@ install:
 
 script:
     # скрипт сборки и тестирования проекта:
-    - mkdir build
-    - cd build
     - cmake .
     - cmake --build ./
     - ctest --output-on-failure
