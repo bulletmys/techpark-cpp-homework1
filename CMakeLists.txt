@@ -4,7 +4,7 @@ project(techpatk_cpp_dz1)
 include(ExternalProject)
 find_package(Git REQUIRED)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD 99)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #
 #add_subdirectory(lib/googletest-master)
@@ -14,6 +14,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #add_executable(test1 test/test.cpp)
 
 add_executable(techpatk_cpp_dz1 main.c main.h)
+
 list(APPEND CATCH_CMAKE_ARGS
         "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
         )
@@ -139,10 +140,7 @@ if (ENABLE_CPPCHECK)
             --error-exitcode=1
             --language=c++
             -DMAIN=main
-            -I ${CMAKE_SOURCE_DIR}/include
-            ${CMAKE_SOURCE_DIR}/include/*.h
-            ${CMAKE_SOURCE_DIR}/src/*.cpp
-            ${CMAKE_SOURCE_DIR}/test/*.cpp
+            -I
             )
 
     add_custom_target(
