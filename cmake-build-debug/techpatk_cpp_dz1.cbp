@@ -17,6 +17,16 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Nightly">
+				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Nightly"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="install/strip">
 				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
 				<Option type="4"/>
@@ -37,57 +47,21 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="techpatk_cpp_dz1">
-				<Option output="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/techpatk_cpp_dz1" prefix_auto="0" extension_auto="0"/>
+			<Target title="install">
 				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/include"/>
-					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-				</Compiler>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 techpatk_cpp_dz1"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="techpatk_cpp_dz1/fast">
-				<Option output="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/techpatk_cpp_dz1" prefix_auto="0" extension_auto="0"/>
+			<Target title="test">
 				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/include"/>
-					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest"/>
-					<Add directory="/usr/include/c++/5"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
-					<Add directory="/usr/include/c++/5/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
-				</Compiler>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 techpatk_cpp_dz1/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 test"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -159,11 +133,77 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
+			<Target title="Experimental">
 				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Experimental"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Continuous">
+				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Continuous"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="techpatk_cpp_dz1">
+				<Option output="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/techpatk_cpp_dz1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 techpatk_cpp_dz1"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="techpatk_cpp_dz1/fast">
+				<Option output="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/techpatk_cpp_dz1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 techpatk_cpp_dz1/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -179,11 +219,11 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="install">
+			<Target title="rebuild_cache">
 				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
