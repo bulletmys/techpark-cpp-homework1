@@ -4,7 +4,7 @@ project(techpatk_cpp_dz1)
 include(ExternalProject)
 find_package(Git REQUIRED)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 11)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #
 #add_subdirectory(lib/googletest-master)
