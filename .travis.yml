@@ -33,27 +33,7 @@ before_script:
 matrix:
   include:
 
-    #
-    # Doxygen
-    #
-    - os: linux
-      env:
-        - TEST="Doxygen"
-      addons:
-        apt:
-          packages:
-            - doxygen
-      script:
-        - cd ..
-        - doxygen .doxygen.txt
-        - |
-          if [[ -s doxygen_warnings.txt ]]; then
-            echo "You must fix doxygen before submitting a pull request"
-            echo ""
-            cat doxygen_warnings.txt
-            exit -1
-          fi
-    #
+ 
     # Git Check
     #
     - os: linux
@@ -108,7 +88,7 @@ matrix:
             - gcc-6
             - g++-6
       script:
-        - cmake -DENABLE_CLANG_TIDY=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+        - cmake -shared -DENABLE_CLANG_TIDY=ON -DCMAKE_CXX_COMPILER="g++-6" ..
         - make
         - make tidy > output.txt
         - |
@@ -134,7 +114,7 @@ matrix:
             - gcc-6
             - g++-6
       script:
-        - cmake -DENABLE_CPPCHECK=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+        - cmake -shared -DENABLE_CPPCHECK=ON -DCMAKE_CXX_COMPILER="g++-6" ..
         - make
         - make check
 
@@ -176,38 +156,12 @@ matrix:
             - gcc-6
             - g++-6
       script:
-        - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+        - cmake -shared -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
         - make
         - make test
         - cd ..
         - bash <(curl -s https://codecov.io/bash)
 
-    #
-    # Coveralls
-    #
-    - os: linux
-      env:
-        - TEST="Coveralls"
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-6
-            - g++-6
-      script:
-        - pip install --upgrade --user git+git://github.com/eddyxu/cpp-coveralls.git
-        - cmake -DENABLE_COVERAGE=ON -DCMAKE_CXX_COMPILER="g++-6" ..
-        - make
-        - make test
-        - cd ..
-        - |
-          coveralls --build-root build --gcov-options '\-lp' \
-            -e build/external \
-            -e build/include \
-            -e build/CMakeFiles/3.8.0 \
-            -e build/CMakeFiles/feature_tests.c \
-            -e build/CMakeFiles/feature_tests.cxx
     #
     # Google Address Sanitizer
     #
@@ -222,7 +176,7 @@ matrix:
       env:
         - TEST="Google Address Sanitizer"
       script:
-        - cmake -DENABLE_ASAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+        - cmake -shared -DENABLE_ASAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
         - make
         - make test
 
@@ -240,7 +194,7 @@ matrix:
             - gcc-6
             - g++-6
       script:
-        - cmake -DENABLE_USAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
+        - cmake -shared -DENABLE_USAN=ON -DCMAKE_CXX_COMPILER="g++-6" ..
         - make
         - make test
 
