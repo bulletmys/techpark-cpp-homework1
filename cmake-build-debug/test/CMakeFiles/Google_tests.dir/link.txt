@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/Google_tests.dir/test.cpp.o  -o Google_tests ../lib/libgtestd.a ../lib/libgtest_maind.a ../lib/libgtestd.a -lpthread 
