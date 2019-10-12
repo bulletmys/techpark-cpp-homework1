@@ -5,11 +5,6 @@
   "file": "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/main.c"
 },
 {
-  "directory": "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug",
-  "command": "/usr/bin/c++   -I/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/include -isystem /home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest/include -isystem /home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest  -g   -std=gnu++14 -o CMakeFiles/test1.dir/test/test.cpp.o -c /home/bulletmys/CLionProjects/techpatk-cpp-dz1/test/test.cpp",
-  "file": "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/test/test.cpp"
-},
-{
   "directory": "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/lib/googletest-master/googlemock",
   "command": "/usr/bin/c++   -isystem /home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/include -isystem /home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock -isystem /home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest/include -isystem /home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest  -g   -Wall -Wshadow -Werror -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/src/gmock_main.cc",
   "file": "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googlemock/src/gmock_main.cc"

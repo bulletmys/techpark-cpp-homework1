@@ -68,37 +68,17 @@ install/fast: preinstall/fast
 	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -112,17 +92,37 @@ install/strip/fast: preinstall/fast
 	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -166,6 +166,32 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named ContinuousStart
+
+# Build rule for target.
+ContinuousStart: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ContinuousStart
+.PHONY : ContinuousStart
+
+# fast build rule for target.
+ContinuousStart/fast:
+	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
+.PHONY : ContinuousStart/fast
+
+#=============================================================================
+# Target rules for targets named ExperimentalCoverage
+
+# Build rule for target.
+ExperimentalCoverage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalCoverage
+.PHONY : ExperimentalCoverage
+
+# fast build rule for target.
+ExperimentalCoverage/fast:
+	$(MAKE) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
+.PHONY : ExperimentalCoverage/fast
 
 #=============================================================================
 # Target rules for targets named NightlyCoverage
@@ -272,17 +298,17 @@ techpatk_cpp_dz1/fast:
 .PHONY : techpatk_cpp_dz1/fast
 
 #=============================================================================
-# Target rules for targets named ExperimentalCoverage
+# Target rules for targets named hippomocks
 
 # Build rule for target.
-ExperimentalCoverage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ExperimentalCoverage
-.PHONY : ExperimentalCoverage
+hippomocks: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hippomocks
+.PHONY : hippomocks
 
 # fast build rule for target.
-ExperimentalCoverage/fast:
-	$(MAKE) -f CMakeFiles/ExperimentalCoverage.dir/build.make CMakeFiles/ExperimentalCoverage.dir/build
-.PHONY : ExperimentalCoverage/fast
+hippomocks/fast:
+	$(MAKE) -f CMakeFiles/hippomocks.dir/build.make CMakeFiles/hippomocks.dir/build
+.PHONY : hippomocks/fast
 
 #=============================================================================
 # Target rules for targets named NightlyUpdate
@@ -337,19 +363,6 @@ ContinuousBuild/fast:
 .PHONY : ContinuousBuild/fast
 
 #=============================================================================
-# Target rules for targets named test1
-
-# Build rule for target.
-test1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test1
-.PHONY : test1
-
-# fast build rule for target.
-test1/fast:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
-.PHONY : test1/fast
-
-#=============================================================================
 # Target rules for targets named Experimental
 
 # Build rule for target.
@@ -361,32 +374,6 @@ Experimental: cmake_check_build_system
 Experimental/fast:
 	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
 .PHONY : Experimental/fast
-
-#=============================================================================
-# Target rules for targets named hippomocks
-
-# Build rule for target.
-hippomocks: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hippomocks
-.PHONY : hippomocks
-
-# fast build rule for target.
-hippomocks/fast:
-	$(MAKE) -f CMakeFiles/hippomocks.dir/build.make CMakeFiles/hippomocks.dir/build
-.PHONY : hippomocks/fast
-
-#=============================================================================
-# Target rules for targets named ContinuousStart
-
-# Build rule for target.
-ContinuousStart: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ContinuousStart
-.PHONY : ContinuousStart
-
-# fast build rule for target.
-ContinuousStart/fast:
-	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
-.PHONY : ContinuousStart/fast
 
 #=============================================================================
 # Target rules for targets named ExperimentalUpdate
@@ -428,19 +415,6 @@ ContinuousUpdate/fast:
 .PHONY : ContinuousUpdate/fast
 
 #=============================================================================
-# Target rules for targets named NightlyBuild
-
-# Build rule for target.
-NightlyBuild: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 NightlyBuild
-.PHONY : NightlyBuild
-
-# fast build rule for target.
-NightlyBuild/fast:
-	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
-.PHONY : NightlyBuild/fast
-
-#=============================================================================
 # Target rules for targets named NightlySubmit
 
 # Build rule for target.
@@ -452,6 +426,19 @@ NightlySubmit: cmake_check_build_system
 NightlySubmit/fast:
 	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
 .PHONY : NightlySubmit/fast
+
+#=============================================================================
+# Target rules for targets named NightlyBuild
+
+# Build rule for target.
+NightlyBuild: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 NightlyBuild
+.PHONY : NightlyBuild
+
+# fast build rule for target.
+NightlyBuild/fast:
+	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/build
+.PHONY : NightlyBuild/fast
 
 #=============================================================================
 # Target rules for targets named ContinuousTest
@@ -675,33 +662,6 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/techpatk_cpp_dz1.dir/build.make CMakeFiles/techpatk_cpp_dz1.dir/main.c.s
 .PHONY : main.c.s
 
-test/test.o: test/test.cpp.o
-
-.PHONY : test/test.o
-
-# target to build an object file
-test/test.cpp.o:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/test/test.cpp.o
-.PHONY : test/test.cpp.o
-
-test/test.i: test/test.cpp.i
-
-.PHONY : test/test.i
-
-# target to preprocess a source file
-test/test.cpp.i:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/test/test.cpp.i
-.PHONY : test/test.cpp.i
-
-test/test.s: test/test.cpp.s
-
-.PHONY : test/test.s
-
-# target to generate assembly for a file
-test/test.cpp.s:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/test/test.cpp.s
-.PHONY : test/test.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -709,34 +669,32 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install"
-	@echo "... list_install_components"
+	@echo "... ContinuousStart"
+	@echo "... ExperimentalCoverage"
 	@echo "... NightlyCoverage"
 	@echo "... NightlyConfigure"
 	@echo "... Nightly"
 	@echo "... ExperimentalStart"
 	@echo "... ContinuousCoverage"
 	@echo "... NightlyStart"
-	@echo "... edit_cache"
 	@echo "... NightlyMemoryCheck"
 	@echo "... techpatk_cpp_dz1"
-	@echo "... ExperimentalCoverage"
-	@echo "... test"
+	@echo "... install/local"
+	@echo "... hippomocks"
 	@echo "... install/strip"
 	@echo "... NightlyUpdate"
 	@echo "... gsl"
 	@echo "... Continuous"
 	@echo "... ContinuousBuild"
-	@echo "... test1"
 	@echo "... Experimental"
-	@echo "... install/local"
-	@echo "... hippomocks"
-	@echo "... ContinuousStart"
+	@echo "... edit_cache"
 	@echo "... ExperimentalUpdate"
 	@echo "... ExperimentalBuild"
 	@echo "... ContinuousUpdate"
-	@echo "... NightlyBuild"
 	@echo "... NightlySubmit"
+	@echo "... NightlyBuild"
 	@echo "... ContinuousTest"
+	@echo "... list_install_components"
 	@echo "... ExperimentalTest"
 	@echo "... ExperimentalMemCheck"
 	@echo "... NightlyMemCheck"
@@ -746,6 +704,7 @@ help:
 	@echo "... ContinuousMemCheck"
 	@echo "... ExperimentalConfigure"
 	@echo "... ContinuousSubmit"
+	@echo "... test"
 	@echo "... NightlyTest"
 	@echo "... rebuild_cache"
 	@echo "... gmock_main"
@@ -755,9 +714,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test/test.o"
-	@echo "... test/test.i"
-	@echo "... test/test.s"
 .PHONY : help
 
 

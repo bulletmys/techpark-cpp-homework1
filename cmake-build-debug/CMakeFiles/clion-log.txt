@@ -1,5 +1,4 @@
 /home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/bulletmys/CLionProjects/techpatk-cpp-dz1
--- Found Git: /usr/bin/git (found version "2.17.1") 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug
