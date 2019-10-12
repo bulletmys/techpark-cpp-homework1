@@ -66,17 +66,17 @@ int Input_int() {
     return result;
 }
 
-int Compare(const void *x1, const void *x2) { //Компаратор для qsort
-    float p_1 = (float) (*(Country *) x1).population / (*(Country *) x1).square;
-    float p_2 = (float) (*(Country *) x2).population / (*(Country *) x2).square;
-
-    if (p_1 > p_2) {
-        return 1;
-    } else if (p_1 < p_2) {
-        return -1;
-    }
-    return 0;
-}
+//int Compare(const void *x1, const void *x2) { //Компаратор для qsort
+//    float p_1 = (float) (*(Country *) x1).population / (*(Country *) x1).square;
+//    float p_2 = (float) (*(Country *) x2).population / (*(Country *) x2).square;
+//
+//    if (p_1 > p_2) {
+//        return 1;
+//    } else if (p_1 < p_2) {
+//        return -1;
+//    }
+//    return 0;
+//}
 
 void sortAndPrint(Country country[], int N) {
     Country tmp;
