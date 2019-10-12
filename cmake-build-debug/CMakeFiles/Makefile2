@@ -53,38 +53,44 @@ CMAKE_BINARY_DIR = /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-de
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/test1.dir/all
 all: CMakeFiles/techpatk_cpp_dz1.dir/all
+all: CMakeFiles/gsl.dir/all
+all: CMakeFiles/test1.dir/all
+all: CMakeFiles/hippomocks.dir/all
+all: CMakeFiles/catch.dir/all
 all: lib/googletest-master/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ExperimentalStart.dir/clean
-clean: CMakeFiles/Nightly.dir/clean
-clean: CMakeFiles/ContinuousCoverage.dir/clean
-clean: CMakeFiles/ContinuousStart.dir/clean
-clean: CMakeFiles/NightlyConfigure.dir/clean
 clean: CMakeFiles/NightlyCoverage.dir/clean
-clean: CMakeFiles/NightlyUpdate.dir/clean
+clean: CMakeFiles/NightlyConfigure.dir/clean
+clean: CMakeFiles/Nightly.dir/clean
+clean: CMakeFiles/ExperimentalStart.dir/clean
+clean: CMakeFiles/ContinuousCoverage.dir/clean
 clean: CMakeFiles/NightlyStart.dir/clean
+clean: CMakeFiles/NightlyMemoryCheck.dir/clean
+clean: CMakeFiles/techpatk_cpp_dz1.dir/clean
 clean: CMakeFiles/ExperimentalCoverage.dir/clean
-clean: CMakeFiles/test1.dir/clean
-clean: CMakeFiles/Experimental.dir/clean
+clean: CMakeFiles/NightlyUpdate.dir/clean
+clean: CMakeFiles/gsl.dir/clean
 clean: CMakeFiles/Continuous.dir/clean
 clean: CMakeFiles/ContinuousBuild.dir/clean
+clean: CMakeFiles/test1.dir/clean
+clean: CMakeFiles/Experimental.dir/clean
+clean: CMakeFiles/hippomocks.dir/clean
+clean: CMakeFiles/ContinuousStart.dir/clean
 clean: CMakeFiles/ExperimentalUpdate.dir/clean
-clean: CMakeFiles/techpatk_cpp_dz1.dir/clean
-clean: CMakeFiles/NightlyMemoryCheck.dir/clean
 clean: CMakeFiles/ExperimentalBuild.dir/clean
 clean: CMakeFiles/ContinuousUpdate.dir/clean
-clean: CMakeFiles/NightlySubmit.dir/clean
 clean: CMakeFiles/NightlyBuild.dir/clean
+clean: CMakeFiles/NightlySubmit.dir/clean
 clean: CMakeFiles/ContinuousTest.dir/clean
 clean: CMakeFiles/ExperimentalTest.dir/clean
 clean: CMakeFiles/ExperimentalMemCheck.dir/clean
 clean: CMakeFiles/NightlyMemCheck.dir/clean
 clean: CMakeFiles/ExperimentalSubmit.dir/clean
+clean: CMakeFiles/catch.dir/clean
 clean: CMakeFiles/ContinuousConfigure.dir/clean
 clean: CMakeFiles/ContinuousMemCheck.dir/clean
 clean: CMakeFiles/ExperimentalConfigure.dir/clean
@@ -98,141 +104,6 @@ clean: lib/googletest-master/clean
 preinstall: lib/googletest-master/preinstall
 
 .PHONY : preinstall
-
-#=============================================================================
-# Target rules for target CMakeFiles/ExperimentalStart.dir
-
-# All Build rule for target.
-CMakeFiles/ExperimentalStart.dir/all:
-	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/depend
-	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target ExperimentalStart"
-.PHONY : CMakeFiles/ExperimentalStart.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/ExperimentalStart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalStart.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/ExperimentalStart.dir/rule
-
-# Convenience name for target.
-ExperimentalStart: CMakeFiles/ExperimentalStart.dir/rule
-
-.PHONY : ExperimentalStart
-
-# clean rule for target.
-CMakeFiles/ExperimentalStart.dir/clean:
-	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/clean
-.PHONY : CMakeFiles/ExperimentalStart.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/Nightly.dir
-
-# All Build rule for target.
-CMakeFiles/Nightly.dir/all:
-	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/depend
-	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target Nightly"
-.PHONY : CMakeFiles/Nightly.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Nightly.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Nightly.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Nightly.dir/rule
-
-# Convenience name for target.
-Nightly: CMakeFiles/Nightly.dir/rule
-
-.PHONY : Nightly
-
-# clean rule for target.
-CMakeFiles/Nightly.dir/clean:
-	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/clean
-.PHONY : CMakeFiles/Nightly.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/ContinuousCoverage.dir
-
-# All Build rule for target.
-CMakeFiles/ContinuousCoverage.dir/all:
-	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/depend
-	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target ContinuousCoverage"
-.PHONY : CMakeFiles/ContinuousCoverage.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/ContinuousCoverage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousCoverage.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/ContinuousCoverage.dir/rule
-
-# Convenience name for target.
-ContinuousCoverage: CMakeFiles/ContinuousCoverage.dir/rule
-
-.PHONY : ContinuousCoverage
-
-# clean rule for target.
-CMakeFiles/ContinuousCoverage.dir/clean:
-	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/clean
-.PHONY : CMakeFiles/ContinuousCoverage.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/ContinuousStart.dir
-
-# All Build rule for target.
-CMakeFiles/ContinuousStart.dir/all:
-	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/depend
-	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target ContinuousStart"
-.PHONY : CMakeFiles/ContinuousStart.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/ContinuousStart.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousStart.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/ContinuousStart.dir/rule
-
-# Convenience name for target.
-ContinuousStart: CMakeFiles/ContinuousStart.dir/rule
-
-.PHONY : ContinuousStart
-
-# clean rule for target.
-CMakeFiles/ContinuousStart.dir/clean:
-	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/clean
-.PHONY : CMakeFiles/ContinuousStart.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/NightlyConfigure.dir
-
-# All Build rule for target.
-CMakeFiles/NightlyConfigure.dir/all:
-	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/depend
-	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlyConfigure"
-.PHONY : CMakeFiles/NightlyConfigure.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/NightlyConfigure.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyConfigure.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/NightlyConfigure.dir/rule
-
-# Convenience name for target.
-NightlyConfigure: CMakeFiles/NightlyConfigure.dir/rule
-
-.PHONY : NightlyConfigure
-
-# clean rule for target.
-CMakeFiles/NightlyConfigure.dir/clean:
-	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/clean
-.PHONY : CMakeFiles/NightlyConfigure.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/NightlyCoverage.dir
@@ -262,31 +133,112 @@ CMakeFiles/NightlyCoverage.dir/clean:
 .PHONY : CMakeFiles/NightlyCoverage.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/NightlyUpdate.dir
+# Target rules for target CMakeFiles/NightlyConfigure.dir
 
 # All Build rule for target.
-CMakeFiles/NightlyUpdate.dir/all:
-	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/depend
-	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlyUpdate"
-.PHONY : CMakeFiles/NightlyUpdate.dir/all
+CMakeFiles/NightlyConfigure.dir/all:
+	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/depend
+	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlyConfigure"
+.PHONY : CMakeFiles/NightlyConfigure.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/NightlyUpdate.dir/rule: cmake_check_build_system
+CMakeFiles/NightlyConfigure.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyUpdate.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyConfigure.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/NightlyUpdate.dir/rule
+.PHONY : CMakeFiles/NightlyConfigure.dir/rule
 
 # Convenience name for target.
-NightlyUpdate: CMakeFiles/NightlyUpdate.dir/rule
+NightlyConfigure: CMakeFiles/NightlyConfigure.dir/rule
 
-.PHONY : NightlyUpdate
+.PHONY : NightlyConfigure
 
 # clean rule for target.
-CMakeFiles/NightlyUpdate.dir/clean:
-	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/clean
-.PHONY : CMakeFiles/NightlyUpdate.dir/clean
+CMakeFiles/NightlyConfigure.dir/clean:
+	$(MAKE) -f CMakeFiles/NightlyConfigure.dir/build.make CMakeFiles/NightlyConfigure.dir/clean
+.PHONY : CMakeFiles/NightlyConfigure.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Nightly.dir
+
+# All Build rule for target.
+CMakeFiles/Nightly.dir/all:
+	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/depend
+	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target Nightly"
+.PHONY : CMakeFiles/Nightly.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Nightly.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Nightly.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Nightly.dir/rule
+
+# Convenience name for target.
+Nightly: CMakeFiles/Nightly.dir/rule
+
+.PHONY : Nightly
+
+# clean rule for target.
+CMakeFiles/Nightly.dir/clean:
+	$(MAKE) -f CMakeFiles/Nightly.dir/build.make CMakeFiles/Nightly.dir/clean
+.PHONY : CMakeFiles/Nightly.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ExperimentalStart.dir
+
+# All Build rule for target.
+CMakeFiles/ExperimentalStart.dir/all:
+	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/depend
+	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target ExperimentalStart"
+.PHONY : CMakeFiles/ExperimentalStart.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ExperimentalStart.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ExperimentalStart.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/ExperimentalStart.dir/rule
+
+# Convenience name for target.
+ExperimentalStart: CMakeFiles/ExperimentalStart.dir/rule
+
+.PHONY : ExperimentalStart
+
+# clean rule for target.
+CMakeFiles/ExperimentalStart.dir/clean:
+	$(MAKE) -f CMakeFiles/ExperimentalStart.dir/build.make CMakeFiles/ExperimentalStart.dir/clean
+.PHONY : CMakeFiles/ExperimentalStart.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ContinuousCoverage.dir
+
+# All Build rule for target.
+CMakeFiles/ContinuousCoverage.dir/all:
+	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/depend
+	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target ContinuousCoverage"
+.PHONY : CMakeFiles/ContinuousCoverage.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ContinuousCoverage.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousCoverage.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/ContinuousCoverage.dir/rule
+
+# Convenience name for target.
+ContinuousCoverage: CMakeFiles/ContinuousCoverage.dir/rule
+
+.PHONY : ContinuousCoverage
+
+# clean rule for target.
+CMakeFiles/ContinuousCoverage.dir/clean:
+	$(MAKE) -f CMakeFiles/ContinuousCoverage.dir/build.make CMakeFiles/ContinuousCoverage.dir/clean
+.PHONY : CMakeFiles/ContinuousCoverage.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/NightlyStart.dir
@@ -316,6 +268,61 @@ CMakeFiles/NightlyStart.dir/clean:
 .PHONY : CMakeFiles/NightlyStart.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/NightlyMemoryCheck.dir
+
+# All Build rule for target.
+CMakeFiles/NightlyMemoryCheck.dir/all:
+	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/depend
+	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlyMemoryCheck"
+.PHONY : CMakeFiles/NightlyMemoryCheck.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/NightlyMemoryCheck.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyMemoryCheck.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/NightlyMemoryCheck.dir/rule
+
+# Convenience name for target.
+NightlyMemoryCheck: CMakeFiles/NightlyMemoryCheck.dir/rule
+
+.PHONY : NightlyMemoryCheck
+
+# clean rule for target.
+CMakeFiles/NightlyMemoryCheck.dir/clean:
+	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/clean
+.PHONY : CMakeFiles/NightlyMemoryCheck.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/techpatk_cpp_dz1.dir
+
+# All Build rule for target.
+CMakeFiles/techpatk_cpp_dz1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all
+CMakeFiles/techpatk_cpp_dz1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f CMakeFiles/techpatk_cpp_dz1.dir/build.make CMakeFiles/techpatk_cpp_dz1.dir/depend
+	$(MAKE) -f CMakeFiles/techpatk_cpp_dz1.dir/build.make CMakeFiles/techpatk_cpp_dz1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=33,34 "Built target techpatk_cpp_dz1"
+.PHONY : CMakeFiles/techpatk_cpp_dz1.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/techpatk_cpp_dz1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/techpatk_cpp_dz1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/techpatk_cpp_dz1.dir/rule
+
+# Convenience name for target.
+techpatk_cpp_dz1: CMakeFiles/techpatk_cpp_dz1.dir/rule
+
+.PHONY : techpatk_cpp_dz1
+
+# clean rule for target.
+CMakeFiles/techpatk_cpp_dz1.dir/clean:
+	$(MAKE) -f CMakeFiles/techpatk_cpp_dz1.dir/build.make CMakeFiles/techpatk_cpp_dz1.dir/clean
+.PHONY : CMakeFiles/techpatk_cpp_dz1.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/ExperimentalCoverage.dir
 
 # All Build rule for target.
@@ -343,59 +350,58 @@ CMakeFiles/ExperimentalCoverage.dir/clean:
 .PHONY : CMakeFiles/ExperimentalCoverage.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test1.dir
+# Target rules for target CMakeFiles/NightlyUpdate.dir
 
 # All Build rule for target.
-CMakeFiles/test1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all
-CMakeFiles/test1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/depend
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=11,12 "Built target test1"
-.PHONY : CMakeFiles/test1.dir/all
+CMakeFiles/NightlyUpdate.dir/all:
+	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/depend
+	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlyUpdate"
+.PHONY : CMakeFiles/NightlyUpdate.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test1.dir/all
+CMakeFiles/NightlyUpdate.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/test1.dir/rule
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyUpdate.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/NightlyUpdate.dir/rule
 
 # Convenience name for target.
-test1: CMakeFiles/test1.dir/rule
+NightlyUpdate: CMakeFiles/NightlyUpdate.dir/rule
 
-.PHONY : test1
+.PHONY : NightlyUpdate
 
 # clean rule for target.
-CMakeFiles/test1.dir/clean:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/clean
-.PHONY : CMakeFiles/test1.dir/clean
+CMakeFiles/NightlyUpdate.dir/clean:
+	$(MAKE) -f CMakeFiles/NightlyUpdate.dir/build.make CMakeFiles/NightlyUpdate.dir/clean
+.PHONY : CMakeFiles/NightlyUpdate.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Experimental.dir
+# Target rules for target CMakeFiles/gsl.dir
 
 # All Build rule for target.
-CMakeFiles/Experimental.dir/all:
-	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/depend
-	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target Experimental"
-.PHONY : CMakeFiles/Experimental.dir/all
+CMakeFiles/gsl.dir/all:
+	$(MAKE) -f CMakeFiles/gsl.dir/build.make CMakeFiles/gsl.dir/depend
+	$(MAKE) -f CMakeFiles/gsl.dir/build.make CMakeFiles/gsl.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=13,14,15,16,17,18,19,20 "Built target gsl"
+.PHONY : CMakeFiles/gsl.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Experimental.dir/rule: cmake_check_build_system
+CMakeFiles/gsl.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/gsl.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Experimental.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Experimental.dir/rule
+.PHONY : CMakeFiles/gsl.dir/rule
 
 # Convenience name for target.
-Experimental: CMakeFiles/Experimental.dir/rule
+gsl: CMakeFiles/gsl.dir/rule
 
-.PHONY : Experimental
+.PHONY : gsl
 
 # clean rule for target.
-CMakeFiles/Experimental.dir/clean:
-	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/clean
-.PHONY : CMakeFiles/Experimental.dir/clean
+CMakeFiles/gsl.dir/clean:
+	$(MAKE) -f CMakeFiles/gsl.dir/build.make CMakeFiles/gsl.dir/clean
+.PHONY : CMakeFiles/gsl.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Continuous.dir
@@ -452,6 +458,115 @@ CMakeFiles/ContinuousBuild.dir/clean:
 .PHONY : CMakeFiles/ContinuousBuild.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/test1.dir
+
+# All Build rule for target.
+CMakeFiles/test1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all
+CMakeFiles/test1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/depend
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=35,36 "Built target test1"
+.PHONY : CMakeFiles/test1.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/test1.dir/rule
+
+# Convenience name for target.
+test1: CMakeFiles/test1.dir/rule
+
+.PHONY : test1
+
+# clean rule for target.
+CMakeFiles/test1.dir/clean:
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/clean
+.PHONY : CMakeFiles/test1.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Experimental.dir
+
+# All Build rule for target.
+CMakeFiles/Experimental.dir/all:
+	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/depend
+	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target Experimental"
+.PHONY : CMakeFiles/Experimental.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Experimental.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Experimental.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Experimental.dir/rule
+
+# Convenience name for target.
+Experimental: CMakeFiles/Experimental.dir/rule
+
+.PHONY : Experimental
+
+# clean rule for target.
+CMakeFiles/Experimental.dir/clean:
+	$(MAKE) -f CMakeFiles/Experimental.dir/build.make CMakeFiles/Experimental.dir/clean
+.PHONY : CMakeFiles/Experimental.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/hippomocks.dir
+
+# All Build rule for target.
+CMakeFiles/hippomocks.dir/all:
+	$(MAKE) -f CMakeFiles/hippomocks.dir/build.make CMakeFiles/hippomocks.dir/depend
+	$(MAKE) -f CMakeFiles/hippomocks.dir/build.make CMakeFiles/hippomocks.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=25,26,27,28,29,30,31,32 "Built target hippomocks"
+.PHONY : CMakeFiles/hippomocks.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/hippomocks.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/hippomocks.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/hippomocks.dir/rule
+
+# Convenience name for target.
+hippomocks: CMakeFiles/hippomocks.dir/rule
+
+.PHONY : hippomocks
+
+# clean rule for target.
+CMakeFiles/hippomocks.dir/clean:
+	$(MAKE) -f CMakeFiles/hippomocks.dir/build.make CMakeFiles/hippomocks.dir/clean
+.PHONY : CMakeFiles/hippomocks.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ContinuousStart.dir
+
+# All Build rule for target.
+CMakeFiles/ContinuousStart.dir/all:
+	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/depend
+	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target ContinuousStart"
+.PHONY : CMakeFiles/ContinuousStart.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ContinuousStart.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ContinuousStart.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/ContinuousStart.dir/rule
+
+# Convenience name for target.
+ContinuousStart: CMakeFiles/ContinuousStart.dir/rule
+
+.PHONY : ContinuousStart
+
+# clean rule for target.
+CMakeFiles/ContinuousStart.dir/clean:
+	$(MAKE) -f CMakeFiles/ContinuousStart.dir/build.make CMakeFiles/ContinuousStart.dir/clean
+.PHONY : CMakeFiles/ContinuousStart.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/ExperimentalUpdate.dir
 
 # All Build rule for target.
@@ -477,61 +592,6 @@ ExperimentalUpdate: CMakeFiles/ExperimentalUpdate.dir/rule
 CMakeFiles/ExperimentalUpdate.dir/clean:
 	$(MAKE) -f CMakeFiles/ExperimentalUpdate.dir/build.make CMakeFiles/ExperimentalUpdate.dir/clean
 .PHONY : CMakeFiles/ExperimentalUpdate.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/techpatk_cpp_dz1.dir
-
-# All Build rule for target.
-CMakeFiles/techpatk_cpp_dz1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all
-CMakeFiles/techpatk_cpp_dz1.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f CMakeFiles/techpatk_cpp_dz1.dir/build.make CMakeFiles/techpatk_cpp_dz1.dir/depend
-	$(MAKE) -f CMakeFiles/techpatk_cpp_dz1.dir/build.make CMakeFiles/techpatk_cpp_dz1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target techpatk_cpp_dz1"
-.PHONY : CMakeFiles/techpatk_cpp_dz1.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/techpatk_cpp_dz1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 6
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/techpatk_cpp_dz1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/techpatk_cpp_dz1.dir/rule
-
-# Convenience name for target.
-techpatk_cpp_dz1: CMakeFiles/techpatk_cpp_dz1.dir/rule
-
-.PHONY : techpatk_cpp_dz1
-
-# clean rule for target.
-CMakeFiles/techpatk_cpp_dz1.dir/clean:
-	$(MAKE) -f CMakeFiles/techpatk_cpp_dz1.dir/build.make CMakeFiles/techpatk_cpp_dz1.dir/clean
-.PHONY : CMakeFiles/techpatk_cpp_dz1.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/NightlyMemoryCheck.dir
-
-# All Build rule for target.
-CMakeFiles/NightlyMemoryCheck.dir/all:
-	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/depend
-	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlyMemoryCheck"
-.PHONY : CMakeFiles/NightlyMemoryCheck.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/NightlyMemoryCheck.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlyMemoryCheck.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/NightlyMemoryCheck.dir/rule
-
-# Convenience name for target.
-NightlyMemoryCheck: CMakeFiles/NightlyMemoryCheck.dir/rule
-
-.PHONY : NightlyMemoryCheck
-
-# clean rule for target.
-CMakeFiles/NightlyMemoryCheck.dir/clean:
-	$(MAKE) -f CMakeFiles/NightlyMemoryCheck.dir/build.make CMakeFiles/NightlyMemoryCheck.dir/clean
-.PHONY : CMakeFiles/NightlyMemoryCheck.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ExperimentalBuild.dir
@@ -588,33 +648,6 @@ CMakeFiles/ContinuousUpdate.dir/clean:
 .PHONY : CMakeFiles/ContinuousUpdate.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/NightlySubmit.dir
-
-# All Build rule for target.
-CMakeFiles/NightlySubmit.dir/all:
-	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/depend
-	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlySubmit"
-.PHONY : CMakeFiles/NightlySubmit.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/NightlySubmit.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlySubmit.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/NightlySubmit.dir/rule
-
-# Convenience name for target.
-NightlySubmit: CMakeFiles/NightlySubmit.dir/rule
-
-.PHONY : NightlySubmit
-
-# clean rule for target.
-CMakeFiles/NightlySubmit.dir/clean:
-	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/clean
-.PHONY : CMakeFiles/NightlySubmit.dir/clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/NightlyBuild.dir
 
 # All Build rule for target.
@@ -640,6 +673,33 @@ NightlyBuild: CMakeFiles/NightlyBuild.dir/rule
 CMakeFiles/NightlyBuild.dir/clean:
 	$(MAKE) -f CMakeFiles/NightlyBuild.dir/build.make CMakeFiles/NightlyBuild.dir/clean
 .PHONY : CMakeFiles/NightlyBuild.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/NightlySubmit.dir
+
+# All Build rule for target.
+CMakeFiles/NightlySubmit.dir/all:
+	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/depend
+	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num= "Built target NightlySubmit"
+.PHONY : CMakeFiles/NightlySubmit.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/NightlySubmit.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/NightlySubmit.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/NightlySubmit.dir/rule
+
+# Convenience name for target.
+NightlySubmit: CMakeFiles/NightlySubmit.dir/rule
+
+.PHONY : NightlySubmit
+
+# clean rule for target.
+CMakeFiles/NightlySubmit.dir/clean:
+	$(MAKE) -f CMakeFiles/NightlySubmit.dir/build.make CMakeFiles/NightlySubmit.dir/clean
+.PHONY : CMakeFiles/NightlySubmit.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ContinuousTest.dir
@@ -775,6 +835,33 @@ ExperimentalSubmit: CMakeFiles/ExperimentalSubmit.dir/rule
 CMakeFiles/ExperimentalSubmit.dir/clean:
 	$(MAKE) -f CMakeFiles/ExperimentalSubmit.dir/build.make CMakeFiles/ExperimentalSubmit.dir/clean
 .PHONY : CMakeFiles/ExperimentalSubmit.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/catch.dir
+
+# All Build rule for target.
+CMakeFiles/catch.dir/all:
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/depend
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target catch"
+.PHONY : CMakeFiles/catch.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/catch.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/catch.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/catch.dir/rule
+
+# Convenience name for target.
+catch: CMakeFiles/catch.dir/rule
+
+.PHONY : catch
+
+# clean rule for target.
+CMakeFiles/catch.dir/clean:
+	$(MAKE) -f CMakeFiles/catch.dir/build.make CMakeFiles/catch.dir/clean
+.PHONY : CMakeFiles/catch.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ContinuousConfigure.dir
@@ -959,7 +1046,7 @@ lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all: lib/googletest-m
 lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=11,12 "Built target gmock_main"
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -986,7 +1073,7 @@ lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/clean:
 lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=9,10 "Built target gmock"
 .PHONY : lib/googletest-master/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1033,7 +1120,7 @@ lib/googletest-master/googletest/preinstall:
 lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all: lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=23,24 "Built target gtest_main"
 .PHONY : lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1060,7 +1147,7 @@ lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/clean:
 lib/googletest-master/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles --progress-num=21,22 "Built target gtest"
 .PHONY : lib/googletest-master/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.

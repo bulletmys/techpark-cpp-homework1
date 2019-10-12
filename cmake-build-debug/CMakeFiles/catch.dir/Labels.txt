@@ -1,0 +1,13 @@
+# Target labels
+ catch
+# Source files and their labels
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/catch
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/catch.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/catch-complete.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-install.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-mkdir.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-download.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-update.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-patch.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-configure.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-build.rule

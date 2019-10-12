@@ -1,0 +1,13 @@
+# Target labels
+ gsl
+# Source files and their labels
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/gsl
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/gsl.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/gsl-complete.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-install.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-mkdir.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-download.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-update.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-patch.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-configure.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-build.rule

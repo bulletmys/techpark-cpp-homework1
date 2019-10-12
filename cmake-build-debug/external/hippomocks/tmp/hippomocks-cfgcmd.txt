@@ -1,0 +1,1 @@
+cmd='/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/bin/cmake;-DCMAKE_INSTALL_PREFIX=/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug;-GCodeBlocks - Unix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

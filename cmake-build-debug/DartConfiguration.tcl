@@ -72,7 +72,7 @@ ValgrindCommandOptions:
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
 MemoryCheckCommand: /usr/bin/valgrind
-MemoryCheckCommandOptions: 
+MemoryCheckCommandOptions:  --leak-check=full --track-fds=yes --trace-children=yes --error-exitcode=1
 MemoryCheckSuppressionFile: 
 
 # Coverage

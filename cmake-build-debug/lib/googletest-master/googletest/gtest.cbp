@@ -5,7 +5,7 @@
 		<Option title="gtest"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\googletest-master\;CMake Files\lib\googletest-master\googlemock\;CMake Files\lib\googletest-master\googlemock\cmake\;CMake Files\lib\googletest-master\googletest\;CMake Files\lib\googletest-master\googletest\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\googletest-master\;CMake Files\lib\googletest-master\googlemock\;CMake Files\lib\googletest-master\googlemock\cmake\;CMake Files\lib\googletest-master\googletest\;CMake Files\lib\googletest-master\googletest\cmake\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\external\;CMake Files\cmake-build-debug\external\catch\;CMake Files\cmake-build-debug\external\catch\tmp\;CMake Files\cmake-build-debug\external\hippomocks\;CMake Files\cmake-build-debug\external\hippomocks\tmp\;CMake Files\cmake-build-debug\external\gsl\;CMake Files\cmake-build-debug\external\gsl\tmp\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/lib/googletest-master/googletest"/>
@@ -161,6 +161,15 @@
 		</Unit>
 		<Unit filename="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/lib/googletest-master/googletest/cmake/internal_utils.cmake">
 			<Option virtualFolder="CMake Files\lib\googletest-master\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/tmp/catch-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\external\catch\tmp\"/>
+		</Unit>
+		<Unit filename="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/tmp/hippomocks-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\external\hippomocks\tmp\"/>
+		</Unit>
+		<Unit filename="/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/tmp/gsl-cfgcmd.txt.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\external\gsl\tmp\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

@@ -1,0 +1,13 @@
+# Target labels
+ hippomocks
+# Source files and their labels
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/hippomocks
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/hippomocks.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/hippomocks-complete.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-install.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-mkdir.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-download.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-update.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-patch.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-configure.rule
+/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-build.rule

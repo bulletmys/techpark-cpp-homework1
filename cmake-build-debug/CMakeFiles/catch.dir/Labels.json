@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/catch"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/catch.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/catch-complete.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-install.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-mkdir.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-download.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-update.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-patch.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-configure.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/catch/stamp/catch-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"catch"
+		],
+		"name" : "catch"
+	}
+}

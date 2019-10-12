@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/hippomocks"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/hippomocks.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/hippomocks-complete.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-install.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-mkdir.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-download.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-update.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-patch.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-configure.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/hippomocks/stamp/hippomocks-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"hippomocks"
+		],
+		"name" : "hippomocks"
+	}
+}

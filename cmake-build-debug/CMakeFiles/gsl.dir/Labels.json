@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/gsl"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/gsl.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/CMakeFiles/gsl-complete.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-install.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-mkdir.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-download.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-update.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-patch.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-configure.rule"
+		},
+		{
+			"file" : "/home/bulletmys/CLionProjects/techpatk-cpp-dz1/cmake-build-debug/external/gsl/stamp/gsl-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"gsl"
+		],
+		"name" : "gsl"
+	}
+}
