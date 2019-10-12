@@ -77,18 +77,12 @@ int Input_int() {
 //    return 0;
 //}
 
-void sortAndPrint(Country country[], int N)
-{
-    // сортировка пузырьком
+void sortAndPrint(Country country[], int N) {
     Country tmp;
-
-    for (int i = N - 1; i >= 0; i--)
-    {
-        for (int j = 0; j < i; j++)
-        {
-            // сравниваем элементы массива структур по сумме баллов студента
-            if (country[j].density > country[j + 1].density)
-            {
+    int i, j;
+    for (i = N - 1; i >= 0; i--) {
+        for (j = 0; j < i; j++) {
+            if (country[j].density > country[j + 1].density) {
                 tmp = country[j];
                 country[j] = country[j + 1];
                 country[j + 1] = tmp;
@@ -109,7 +103,8 @@ void PrintCountries(Country *countries, int num_of_countries, int start) {
     }
 
     printf("%15s %15s %15s %15s %15s\n\n", "Country", "Capital", "Population", "Square", "Density");
-    for (int i = start; i < num_of_countries; ++i) {
+    int i;
+    for (i = start; i < num_of_countries; ++i) {
         printf("%15s %15s %15zu %15zu %15zu\n",
                countries[i].name_of_country,
                countries[i].capital,
@@ -126,9 +121,9 @@ Country *AddCountry(Country *countries, int *cur_num) {
     printf("How many countries do you want to add?\n");
     int num_of_new = Input_int();
 
-    countries = (Country *)realloc(countries, sizeof(Country) * (num + num_of_new));
-
-    for (int i = num; i < num_of_new + num; ++i) {
+    countries = (Country *) realloc(countries, sizeof(Country) * (num + num_of_new));
+    int i;
+    for (i = num; i < num_of_new + num; ++i) {
         printf("Enter country name\n");
         countries[i].name_of_country = Input_string();
         printf("Enter the name of the capital\n");
