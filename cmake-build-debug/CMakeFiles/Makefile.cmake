@@ -41,13 +41,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-C.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU-CXX.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Compiler/GNU.cmake"
-  "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindGTest.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageHandleStandardArgs.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindPackageMessage.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindPythonInterp.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/FindThreads.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/GNUInstallDirs.cmake"
-  "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/GoogleTest.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Internal/CMakeCheckCompilerFlag.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-C.cmake"
   "/home/bulletmys/Документы/clion-2019.2.3/bin/cmake/linux/share/cmake-3.15/Modules/Platform/Linux-GNU-CXX.cmake"
@@ -75,7 +73,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/techpatk_cpp_dz1.dir/DependInfo.cmake"
-  "CMakeFiles/test.dir/DependInfo.cmake"
+  "CMakeFiles/test1.dir/DependInfo.cmake"
   "lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "lib/googletest-master/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
