@@ -15,44 +15,38 @@ CPPUNIT_NS_BEGIN
  *
  * Implementation detail.
  */
-class TestCaseMethodFunctor : public Functor
-{
+class TestCaseMethodFunctor : public Functor {
 public:
-  typedef void (TestCase::*Method)();
+    typedef void (TestCase::*Method)();
 
-  TestCaseMethodFunctor( TestCase *target,
-                         Method method )
-     : m_target( target )
-     , m_method( method )
-  {
-  }
+    TestCaseMethodFunctor(TestCase *target,
+                          Method method)
+            : m_target(target), m_method(method) {
+    }
 
-  bool operator()() const
-  {
-    (m_target->*m_method)();
-    return true;
-  }
+    bool operator()() const {
+        (m_target->*m_method)();
+        return true;
+    }
 
 private:
-  TestCase *m_target;
-  Method m_method;
+    TestCase *m_target;
+    Method m_method;
 };
 
 
 /** Constructs a test case.
  *  \param name the name of the TestCase.
  **/
-TestCase::TestCase( const std::string &name )
-    : m_name(name)
-{
+TestCase::TestCase(const std::string &name)
+        : m_name(name) {
 }
 
 
 /// Run the test and catch any exceptions that are triggered by it 
-void 
-TestCase::run( TestResult *result )
-{
-  result->startTest(this);
+void
+TestCase::run(TestResult *result) {
+    result->startTest(this);
 /*
   try {
     setUp();
@@ -84,26 +78,24 @@ TestCase::run( TestResult *result )
     result->addError( this, new Exception( Message( "setUp() failed" ) ) );
   }
 */
-  if ( result->protect( TestCaseMethodFunctor( this, &TestCase::setUp ),
+    if (result->protect(TestCaseMethodFunctor(this, &TestCase::setUp),
                         this,
-                       "setUp() failed" ) )
-  {
-    result->protect( TestCaseMethodFunctor( this, &TestCase::runTest ),
-                     this );
-  }
+                        "setUp() failed")) {
+        result->protect(TestCaseMethodFunctor(this, &TestCase::runTest),
+                        this);
+    }
 
-  result->protect( TestCaseMethodFunctor( this, &TestCase::tearDown ),
-                   this,
-                   "tearDown() failed" );
+    result->protect(TestCaseMethodFunctor(this, &TestCase::tearDown),
+                    this,
+                    "tearDown() failed");
 
-  result->endTest( this );
+    result->endTest(this);
 }
 
 
 /// All the work for runTest is deferred to subclasses 
-void 
-TestCase::runTest()
-{
+void
+TestCase::runTest() {
 }
 
 
@@ -115,23 +107,20 @@ TestCase::runTest()
  *  be used by a test case for which run() is called.
  **/
 TestCase::TestCase()
-    : m_name( "" )
-{
+        : m_name("") {
 }
 
 
 /// Destructs a test case
-TestCase::~TestCase()
-{
+TestCase::~TestCase() {
 }
 
 
 /// Returns the name of the test case
-std::string 
-TestCase::getName() const
-{ 
-  return m_name; 
+std::string
+TestCase::getName() const {
+    return m_name;
 }
-  
+
 
 CPPUNIT_NS_END

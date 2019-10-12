@@ -4,72 +4,85 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 
-class TestAssertTest : public CPPUNIT_NS::TestFixture
-{
-  CPPUNIT_TEST_SUITE( TestAssertTest );
-  CPPUNIT_TEST( testAssertThrow );
-  CPPUNIT_TEST( testAssertNoThrow );
-  CPPUNIT_TEST( testAssertAssertionFail );
-  CPPUNIT_TEST( testAssertAssertionPass );
-  CPPUNIT_TEST( testAssert );
-  CPPUNIT_TEST( testAssertEqual );
-  CPPUNIT_TEST( testAssertLess );
-  CPPUNIT_TEST( testAssertGreater );
-  CPPUNIT_TEST( testAssertLessEqual );
-  CPPUNIT_TEST( testAssertGreaterEqual );
-  CPPUNIT_TEST( testAssertMessageTrue );
-  CPPUNIT_TEST( testAssertMessageFalse );
-  CPPUNIT_TEST( testAssertDoubleEquals );
-  CPPUNIT_TEST( testAssertDoubleEqualsPrecision );
-  CPPUNIT_TEST( testAssertDoubleNonFinite );
-  CPPUNIT_TEST( testFail );
-  CPPUNIT_TEST_SUITE_END();
+class TestAssertTest : public CPPUNIT_NS::TestFixture {
+    CPPUNIT_TEST_SUITE( TestAssertTest );
+    CPPUNIT_TEST( testAssertThrow );
+    CPPUNIT_TEST( testAssertNoThrow );
+    CPPUNIT_TEST( testAssertAssertionFail );
+    CPPUNIT_TEST( testAssertAssertionPass );
+    CPPUNIT_TEST( testAssert );
+    CPPUNIT_TEST( testAssertEqual );
+    CPPUNIT_TEST( testAssertLess );
+    CPPUNIT_TEST( testAssertGreater );
+    CPPUNIT_TEST( testAssertLessEqual );
+    CPPUNIT_TEST( testAssertGreaterEqual );
+    CPPUNIT_TEST( testAssertMessageTrue );
+    CPPUNIT_TEST( testAssertMessageFalse );
+    CPPUNIT_TEST( testAssertDoubleEquals );
+    CPPUNIT_TEST( testAssertDoubleEqualsPrecision );
+    CPPUNIT_TEST( testAssertDoubleNonFinite );
+    CPPUNIT_TEST( testFail );
+
+    CPPUNIT_TEST_SUITE_END();
 
 public:
-  TestAssertTest();
+    TestAssertTest();
 
-  virtual ~TestAssertTest();
+    virtual ~TestAssertTest();
 
-  virtual void setUp();
-  virtual void tearDown();
+    virtual void setUp();
 
-  void testAssertThrow();
-  void testAssertNoThrow();
-  void testAssertAssertionFail();
-  void testAssertAssertionPass();
+    virtual void tearDown();
 
-  void testBasicAssertions();
+    void testAssertThrow();
 
-  void testAssert();
-  
-  void testAssertEqual();
-  void testAssertLess();
-  void testAssertGreater();
-  void testAssertLessEqual();
-  void testAssertGreaterEqual();
+    void testAssertNoThrow();
 
-  void testAssertMessageTrue();
-  void testAssertMessageFalse();
+    void testAssertAssertionFail();
 
-  void testAssertDoubleEquals();
-  void testAssertDoubleEqualsPrecision();
-  void testAssertDoubleNonFinite();
+    void testAssertAssertionPass();
 
-  void testAssertLongEquals();
-  void testAssertLongNotEquals();
+    void testBasicAssertions();
 
-  void testFail();
+    void testAssert();
+
+    void testAssertEqual();
+
+    void testAssertLess();
+
+    void testAssertGreater();
+
+    void testAssertLessEqual();
+
+    void testAssertGreaterEqual();
+
+    void testAssertMessageTrue();
+
+    void testAssertMessageFalse();
+
+    void testAssertDoubleEquals();
+
+    void testAssertDoubleEqualsPrecision();
+
+    void testAssertDoubleNonFinite();
+
+    void testAssertLongEquals();
+
+    void testAssertLongNotEquals();
+
+    void testFail();
 
 private:
-  TestAssertTest( const TestAssertTest &copy );
-  void operator =( const TestAssertTest &copy );
+    TestAssertTest(const TestAssertTest &copy);
 
-  void checkDoubleNotEquals( double expected, 
-                             double actual, 
-                             double delta );
+    void operator=(const TestAssertTest &copy);
 
-  void checkMessageContains( CPPUNIT_NS::Exception *e,
-                             std::string expectedMessage );
+    void checkDoubleNotEquals(double expected,
+                              double actual,
+                              double delta);
+
+    void checkMessageContains(CPPUNIT_NS::Exception *e,
+                              std::string expectedMessage);
 
 private:
 };

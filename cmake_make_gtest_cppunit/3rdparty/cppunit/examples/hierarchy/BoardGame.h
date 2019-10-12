@@ -9,9 +9,10 @@
  *  
  */
 class BoardGame {
-  public:
+public:
     /// expected to return true
     virtual bool reset();
+
     virtual ~BoardGame();
 };
 

@@ -10,31 +10,36 @@ CPPUNIT_NS_BEGIN
 /*! \brief TestListener that prints the name of each test before running it.
  * \ingroup TrackingTestExecution
  */
-class CPPUNIT_API BriefTestProgressListener : public TestListener
+class CPPUNIT_API BriefTestProgressListener
+: public TestListener
 {
 public:
-  /*! Constructs a BriefTestProgressListener object.
-   */
-  BriefTestProgressListener();
 
-  /// Destructor.
-  virtual ~BriefTestProgressListener();
+/*! Constructs a BriefTestProgressListener object.
+ */
+BriefTestProgressListener();
 
-  void startTest( Test *test );
+/// Destructor.
+virtual ~
 
-  void addFailure( const TestFailure &failure );
+BriefTestProgressListener();
 
-  void endTest( Test *test );
+void startTest(Test *test);
 
-private:
-  /// Prevents the use of the copy constructor.
-  BriefTestProgressListener( const BriefTestProgressListener &copy );
+void addFailure(const TestFailure &failure);
 
-  /// Prevents the use of the copy operator.
-  void operator =( const BriefTestProgressListener &copy );
+void endTest(Test *test);
 
 private:
-  bool m_lastTestFailed;
+
+/// Prevents the use of the copy constructor.
+BriefTestProgressListener(const BriefTestProgressListener &copy);
+
+/// Prevents the use of the copy operator.
+void operator=(const BriefTestProgressListener &copy);
+
+private:
+bool m_lastTestFailed;
 };
 
 

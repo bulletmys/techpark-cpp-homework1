@@ -6,35 +6,35 @@
 #endif // _MSC_VER > 1000
 
 #define HAVE_CMATH 1
- 
+
 /* include/cppunit/config-msvc6.h. Manually adapted from 
    include/cppunit/config-auto.h */
 
 /* define to 1 if the compiler implements namespaces */
-#ifndef CPPUNIT_HAVE_NAMESPACES 
-#define CPPUNIT_HAVE_NAMESPACES  1 
+#ifndef CPPUNIT_HAVE_NAMESPACES
+#define CPPUNIT_HAVE_NAMESPACES  1
 #endif
 
 /* define if library uses std::string::compare(string,pos,n) */
-#ifdef CPPUNIT_FUNC_STRING_COMPARE_STRING_FIRST 
+#ifdef CPPUNIT_FUNC_STRING_COMPARE_STRING_FIRST
 #undef CPPUNIT_FUNC_STRING_COMPARE_STRING_FIRST
 #endif
 
 /* Define if you have the <dlfcn.h> header file. */
-#ifdef CPPUNIT_HAVE_DLFCN_H 
+#ifdef CPPUNIT_HAVE_DLFCN_H
 #undef CPPUNIT_HAVE_DLFCN_H 
 #endif
 
 /* define to 1 if the compiler implements namespaces */
-#ifndef CPPUNIT_HAVE_NAMESPACES 
+#ifndef CPPUNIT_HAVE_NAMESPACES
 #define CPPUNIT_HAVE_NAMESPACES  1 
 #endif
 
 #define CPPUNIT_HAVE_SSTREAM 1
 
 /* Name of package */
-#ifndef CPPUNIT_PACKAGE 
-#define CPPUNIT_PACKAGE  "cppunit" 
+#ifndef CPPUNIT_PACKAGE
+#define CPPUNIT_PACKAGE  "cppunit"
 #endif
 
 
@@ -52,7 +52,7 @@
 
 /* define to 1 if the compiler has _finite() */
 #ifndef CPPUNIT_HAVE__FINITE
-#define CPPUNIT_HAVE__FINITE 1 
+#define CPPUNIT_HAVE__FINITE 1
 #endif
 
 

@@ -5,7 +5,7 @@
 #include <cppunit/TestSuite.h>
 
 #if !defined(WINAPI)
-#define WIN32_LEAN_AND_MEAN 
+#define WIN32_LEAN_AND_MEAN
 #define NOGDI
 #define NOUSER
 #define NOKERNEL
@@ -13,7 +13,9 @@
 #ifndef NOMINMAX
 #define NOMINMAX
 #endif
+
 #include <windows.h>
+
 #endif
 
 /*! \brief Abstract TestPlugIn for DLL.
@@ -32,23 +34,24 @@
  *
  */
 class TestPlugInInterface
-{
-public:
-  virtual ~TestPlugInInterface() {}
+        {
+                public:
+                virtual ~TestPlugInInterface() {}
 
-  /*! Returns an instance of the "All Tests" suite.
-   *
-   * \return Instance of the top-level suite that contains all test. Ownership
-   *         is granted to the method caller.
-   */
-  virtual CppUnit::Test *makeTest() =0;
-};
+        /*! Returns an instance of the "All Tests" suite.
+         *
+         * \return Instance of the top-level suite that contains all test. Ownership
+         *         is granted to the method caller.
+         */
+        virtual CppUnit::Test *makeTest() =0;
+        };
 
-typedef TestPlugInInterface* (WINAPI *GetTestPlugInInterfaceFunction)(void);
+typedef TestPlugInInterface *(WINAPI
+*GetTestPlugInInterfaceFunction)(void);
 
 
 extern "C" {
-  __declspec(dllexport) TestPlugInInterface *GetTestPlugInInterface();
+__declspec(dllexport) TestPlugInInterface *GetTestPlugInInterface();
 }
 
 #endif // CPPUNIT_TESTPLUGINRUNNER_TESTPLUGININTERFACE_H

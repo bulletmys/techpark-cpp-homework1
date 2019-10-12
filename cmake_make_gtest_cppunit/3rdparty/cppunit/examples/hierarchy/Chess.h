@@ -3,8 +3,8 @@
 
 #include "BoardGame.h"
 
-class Chess: public BoardGame {
-  public:
+class Chess : public BoardGame {
+public:
     virtual int getNumberOfPieces() const;
 };
 

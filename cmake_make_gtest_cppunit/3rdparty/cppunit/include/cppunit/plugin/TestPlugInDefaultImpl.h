@@ -28,25 +28,31 @@ class TestSuite;
  * ( TestFactoryRegistry::getRegistry() ).
  *
  */
-class CPPUNIT_API TestPlugInDefaultImpl : public CppUnitTestPlugIn
+class CPPUNIT_API TestPlugInDefaultImpl
+
+: public CppUnitTestPlugIn
 {
 public:
-  TestPlugInDefaultImpl();
 
-  virtual ~TestPlugInDefaultImpl();
+TestPlugInDefaultImpl();
 
-  void initialize( TestFactoryRegistry *registry,
-                   const PlugInParameters &parameters );
+virtual ~
 
-  void addListener( TestResult *eventManager );
+TestPlugInDefaultImpl();
 
-  void removeListener( TestResult *eventManager );
+void initialize(TestFactoryRegistry *registry,
+                const PlugInParameters &parameters);
 
-  void addXmlOutputterHooks( XmlOutputter *outputter );
+void addListener(TestResult *eventManager);
 
-  void removeXmlOutputterHooks();
+void removeListener(TestResult *eventManager);
 
-  void uninitialize( TestFactoryRegistry *registry );
+void addXmlOutputterHooks(XmlOutputter *outputter);
+
+void removeXmlOutputterHooks();
+
+void uninitialize(TestFactoryRegistry *registry);
+
 };
 
 

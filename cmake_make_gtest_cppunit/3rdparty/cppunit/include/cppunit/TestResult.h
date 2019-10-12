@@ -16,11 +16,17 @@ CPPUNIT_NS_BEGIN
 
 
 class Exception;
+
 class Functor;
+
 class Protector;
+
 class ProtectorChain;
+
 class Test;
+
 class TestFailure;
+
 class TestListener;
 
 
@@ -44,99 +50,111 @@ class TestListener;
  *
  * \see Test, TestListener, TestResultCollector, Outputter.
  */
-class CPPUNIT_API TestResult : protected SynchronizedObject
+class CPPUNIT_API TestResult
+
+: protected SynchronizedObject
 {
 public:
-  /// Construct a TestResult
-  TestResult( SynchronizationObject *syncObject = 0 );
+/// Construct a TestResult
+TestResult( SynchronizationObject
+*
+syncObject = 0
+);
 
-  /// Destroys a test result
-  virtual ~TestResult();
+/// Destroys a test result
+virtual ~
 
-  virtual void addListener( TestListener *listener );
+TestResult();
 
-  virtual void removeListener( TestListener *listener );
+virtual void addListener(TestListener *listener);
 
-  /// Resets the stop flag.
-  virtual void reset();
-  
-  /// Stop testing
-  virtual void stop();
+virtual void removeListener(TestListener *listener);
 
-  /// Returns whether testing should be stopped
-  virtual bool shouldStop() const;
+/// Resets the stop flag.
+virtual void reset();
 
-  /// Informs TestListener that a test will be started.
-  virtual void startTest( Test *test );
+/// Stop testing
+virtual void stop();
 
-  /*! \brief Adds an error to the list of errors. 
-   *  The passed in exception
-   *  caused the error
-   */
-  virtual void addError( Test *test, Exception *e );
+/// Returns whether testing should be stopped
+virtual bool shouldStop() const;
 
-  /*! \brief Adds a failure to the list of failures. The passed in exception
-   * caused the failure.
-   */
-  virtual void addFailure( Test *test, Exception *e );
+/// Informs TestListener that a test will be started.
+virtual void startTest(Test *test);
 
-  /// Informs TestListener that a test was completed.
-  virtual void endTest( Test *test );
+/*! \brief Adds an error to the list of errors.
+ *  The passed in exception
+ *  caused the error
+ */
+virtual void addError(Test *test, Exception *e);
 
-  /// Informs TestListener that a test suite will be started.
-  virtual void startSuite( Test *test );
+/*! \brief Adds a failure to the list of failures. The passed in exception
+ * caused the failure.
+ */
+virtual void addFailure(Test *test, Exception *e);
 
-  /// Informs TestListener that a test suite was completed.
-  virtual void endSuite( Test *test );
+/// Informs TestListener that a test was completed.
+virtual void endTest(Test *test);
 
-  /*! \brief Run the specified test.
-   * 
-   * Calls startTestRun(), test->run(this), and finally endTestRun().
-   */
-  virtual void runTest( Test *test );
+/// Informs TestListener that a test suite will be started.
+virtual void startSuite(Test *test);
 
-  /*! \brief Protects a call to the specified functor.
-   *
-   * See Protector to understand how protector works. A default protector is
-   * always present. It captures CppUnit::Exception, std::exception and
-   * any other exceptions, retrieving as much as possible information about
-   * the exception as possible.
-   *
-   * Additional Protector can be added to the chain to support other exception
-   * types using pushProtector() and popProtector().
-   *
-   * \param functor Functor to call (typically a call to setUp(), runTest() or
-   *                tearDown().
-   * \param test Test the functor is associated to (used for failure reporting).
-   * \param shortDescription Short description override for the failure message.
-   */
-  virtual bool protect( const Functor &functor,
-                        Test *test,
-                        const std::string &shortDescription = std::string("") );
+/// Informs TestListener that a test suite was completed.
+virtual void endSuite(Test *test);
 
-  /// Adds the specified protector to the protector chain.
-  virtual void pushProtector( Protector *protector );
+/*! \brief Run the specified test.
+ *
+ * Calls startTestRun(), test->run(this), and finally endTestRun().
+ */
+virtual void runTest(Test *test);
 
-  /// Removes the last protector from the protector chain.
-  virtual void popProtector();
+/*! \brief Protects a call to the specified functor.
+ *
+ * See Protector to understand how protector works. A default protector is
+ * always present. It captures CppUnit::Exception, std::exception and
+ * any other exceptions, retrieving as much as possible information about
+ * the exception as possible.
+ *
+ * Additional Protector can be added to the chain to support other exception
+ * types using pushProtector() and popProtector().
+ *
+ * \param functor Functor to call (typically a call to setUp(), runTest() or
+ *                tearDown().
+ * \param test Test the functor is associated to (used for failure reporting).
+ * \param shortDescription Short description override for the failure message.
+ */
+virtual bool protect(const Functor &functor,
+                     Test *test,
+                     const std::string &shortDescription = std::string(""));
+
+/// Adds the specified protector to the protector chain.
+virtual void pushProtector(Protector *protector);
+
+/// Removes the last protector from the protector chain.
+virtual void popProtector();
 
 protected:
-  /*! \brief Called to add a failure to the list of failures.
-   */
-  void addFailure( const TestFailure &failure );
 
-  virtual void startTestRun( Test *test );
-  virtual void endTestRun( Test *test );
-  
+/*! \brief Called to add a failure to the list of failures.
+ */
+void addFailure(const TestFailure &failure);
+
+virtual void startTestRun(Test *test);
+
+virtual void endTestRun(Test *test);
+
 protected:
-  typedef std::deque<TestListener *> TestListeners;
-  TestListeners m_listeners;
-  ProtectorChain *m_protectorChain;
-  bool m_stop;
+typedef std::deque<TestListener *> TestListeners;
+TestListeners m_listeners;
+ProtectorChain *m_protectorChain;
+bool m_stop;
 
-private: 
-  TestResult( const TestResult &other );
-  TestResult &operator =( const TestResult &other );
+private:
+
+TestResult(const TestResult &other);
+
+TestResult &operator=(const TestResult &other);
+
 };
 
 

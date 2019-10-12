@@ -36,41 +36,41 @@ CPPUNIT_NS_BEGIN
  *
  * \see Message
  */
-class CPPUNIT_API AdditionalMessage : public Message
+class CPPUNIT_API AdditionalMessage
+: public Message
 {
 public:
-  typedef Message SuperClass;
+typedef Message SuperClass;
 
-  /// Constructs an empty Message.
-  AdditionalMessage();
+/// Constructs an empty Message.
+AdditionalMessage();
 
-  /*! \brief Constructs a Message with the specified detail string.
-   * \param detail1 Detail string of the message. If empty, then it is not added.
-   */
-  AdditionalMessage( const std::string &detail1 );
+/*! \brief Constructs a Message with the specified detail string.
+ * \param detail1 Detail string of the message. If empty, then it is not added.
+ */
+AdditionalMessage(const std::string &detail1);
 
-  /*! \brief Constructs a Message with the specified detail string.
-   * \param detail1 Detail string of the message. If empty, then it is not added.
-   */
-  AdditionalMessage( const char *detail1 );
+/*! \brief Constructs a Message with the specified detail string.
+ * \param detail1 Detail string of the message. If empty, then it is not added.
+ */
+AdditionalMessage(const char *detail1);
 
-  /*! \brief Constructs a copy of the specified message.
-   * \param other Message to copy.
-   */
-  AdditionalMessage( const Message &other );
+/*! \brief Constructs a copy of the specified message.
+ * \param other Message to copy.
+ */
+AdditionalMessage(const Message &other);
 
-  /*! \brief Assignment operator.
-   * \param other Message to copy.
-   * \return Reference on this object.
-   */
-  AdditionalMessage &operator =( const Message &other );
+/*! \brief Assignment operator.
+ * \param other Message to copy.
+ * \return Reference on this object.
+ */
+AdditionalMessage &operator=(const Message &other);
 
 private:
 };
 
 
 CPPUNIT_NS_END
-
 
 
 #endif  // CPPUNIT_ADDITIONALMESSAGE_H

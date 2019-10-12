@@ -27,7 +27,7 @@ set(CPPUNIT_LIBRARY ${CPPUNIT_LIB})
 target_link_libraries(tests_cppunit ${CPPUNIT_LIBRARY})
 
 # sets GTEST_INCLUDE_DIRS and GTEST_LIBRARIES
-find_package( GTest REQUIRED )
+find_package(GTest REQUIRED)
 # adds the gtest include directory
 include_directories(${GTEST_INCLUDE_DIRS})
 

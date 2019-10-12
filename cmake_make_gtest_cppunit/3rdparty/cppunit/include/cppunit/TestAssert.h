@@ -51,26 +51,21 @@ CPPUNIT_NS_BEGIN
  * };
  * \endcode
  */
-template <class T>
-struct assertion_traits 
-{  
-    static bool equal( const T& x, const T& y )
-    {
+template<class T>
+struct assertion_traits {
+    static bool equal(const T &x, const T &y) {
         return x == y;
     }
 
-    static bool less( const T& x, const T& y )
-    {
+    static bool less(const T &x, const T &y) {
         return x < y;
     }
 
-    static bool lessEqual( const T& x, const T& y )
-    {
+    static bool lessEqual(const T &x, const T &y) {
         return x <= y;
     }
 
-    static std::string toString( const T& x )
-    {
+    static std::string toString(const T &x) {
         return CPPUNIT_NS::StringHelper::toString(x);
     }
 };
@@ -83,38 +78,33 @@ struct assertion_traits
  * within float.h is available to define the maximum precision, otherwise
  * use the hard-coded maximum precision of 15.
  */
-template <>
-struct assertion_traits<double>
-{  
-    static bool equal( double x, double y )
-    {
+template<>
+struct assertion_traits<double> {
+    static bool equal(double x, double y) {
         return x == y;
     }
 
-    static bool less( double x, double y )
-    {
+    static bool less(double x, double y) {
         return x < y;
     }
 
-    static bool lessEqual( double x, double y )
-    {
+    static bool lessEqual(double x, double y) {
         return x <= y;
     }
 
-    static std::string toString( double x )
-    {
+    static std::string toString(double x) {
 #ifdef DBL_DIG
-       const int precision = DBL_DIG;
+        const int precision = DBL_DIG;
 #else
-       const int precision = 15;
+        const int precision = 15;
 #endif  // #ifdef DBL_DIG
-       char buffer[128];
+        char buffer[128];
 #ifdef __STDC_SECURE_LIB__ // Use secure version with visual studio 2005 to avoid warning.
-       sprintf_s(buffer, sizeof(buffer), "%.*g", precision, x); 
-#else	
-       sprintf(buffer, "%.*g", precision, x); 
+        sprintf_s(buffer, sizeof(buffer), "%.*g", precision, x);
+#else
+        sprintf(buffer, "%.*g", precision, x);
 #endif
-       return buffer;
+        return buffer;
     }
 };
 
@@ -123,19 +113,18 @@ struct assertion_traits<double>
  * Use CPPUNIT_ASSERT_EQUAL instead of this function.
  * \sa assertion_traits, Asserter::failNotEqual().
  */
-template <class T>
-void assertEquals( const T& expected,
-                   const T& actual,
-                   SourceLine sourceLine,
-                   const std::string &message )
-{
-  if ( !assertion_traits<T>::equal(expected,actual) ) // lazy toString conversion...
-  {
-    Asserter::failNotEqual( assertion_traits<T>::toString(expected),
-                            assertion_traits<T>::toString(actual),
-                            sourceLine,
-                            message );
-  }
+template<class T>
+void assertEquals(const T &expected,
+                  const T &actual,
+                  SourceLine sourceLine,
+                  const std::string &message) {
+    if (!assertion_traits<T>::equal(expected, actual)) // lazy toString conversion...
+    {
+        Asserter::failNotEqual(assertion_traits<T>::toString(expected),
+                               assertion_traits<T>::toString(actual),
+                               sourceLine,
+                               message);
+    }
 }
 
 
@@ -144,29 +133,29 @@ void assertEquals( const T& expected,
  * \sa Asserter::failNotEqual().
  * \sa CPPUNIT_ASSERT_DOUBLES_EQUAL for detailed semantic of the assertion.
  */
-void CPPUNIT_API assertDoubleEquals( double expected,
-                                     double actual,
-                                     double delta,
-                                     SourceLine sourceLine, 
-                                     const std::string &message );
+void CPPUNIT_API
+
+assertDoubleEquals(double expected,
+                   double actual,
+                   double delta,
+                   SourceLine sourceLine,
+                   const std::string &message);
 
 
 /*! \brief (Implementation) Asserts that an object is less than another one of the same type
  * Use CPPUNIT_ASSERT_LESS, CPPUNIT_ASSERT_GREATER instead of this function.
  * \sa assertion_traits, Asserter::failNotLess().
  */
-template <class T>
-void assertLess( const T& expected,
-                 const T& actual,
-                 SourceLine sourceLine,
-                 const std::string& message )
-{
-    if ( !assertion_traits<T>::less(actual,expected) )
-    {
-        Asserter::failNotLess( assertion_traits<T>::toString(expected),
-                               assertion_traits<T>::toString(actual),
-                               sourceLine,
-                               message );
+template<class T>
+void assertLess(const T &expected,
+                const T &actual,
+                SourceLine sourceLine,
+                const std::string &message) {
+    if (!assertion_traits<T>::less(actual, expected)) {
+        Asserter::failNotLess(assertion_traits<T>::toString(expected),
+                              assertion_traits<T>::toString(actual),
+                              sourceLine,
+                              message);
     }
 }
 
@@ -175,18 +164,16 @@ void assertLess( const T& expected,
  * Use CPPUNIT_ASSERT_LESS, CPPUNIT_ASSERT_GREATER instead of this function.
  * \sa assertion_traits, Asserter::failNotLess().
  */
-template <class T>
-void assertGreater( const T& expected,
-                 const T& actual,
-                 SourceLine sourceLine,
-                 const std::string& message )
-{
-    if ( !assertion_traits<T>::less(expected,actual) )
-    {
-        Asserter::failNotGreater( assertion_traits<T>::toString(expected),
-                               assertion_traits<T>::toString(actual),
-                               sourceLine,
-                               message );
+template<class T>
+void assertGreater(const T &expected,
+                   const T &actual,
+                   SourceLine sourceLine,
+                   const std::string &message) {
+    if (!assertion_traits<T>::less(expected, actual)) {
+        Asserter::failNotGreater(assertion_traits<T>::toString(expected),
+                                 assertion_traits<T>::toString(actual),
+                                 sourceLine,
+                                 message);
     }
 }
 
@@ -194,18 +181,16 @@ void assertGreater( const T& expected,
  * Use CPPUNIT_ASSERT_LESSEQUAL, CPPUNIT_ASSERT_GREATEREQUAL instead of this function.
  * \sa assertion_traits, Asserter::failNotLessEqual().
  */
-template <class T>
-void assertLessEqual( const T& expected,
-                      const T& actual,
-                      SourceLine sourceLine,
-                      const std::string& message )
-{
-    if ( !assertion_traits<T>::lessEqual(actual,expected) )
-    {
-        Asserter::failNotLessEqual( assertion_traits<T>::toString(expected),
-                               assertion_traits<T>::toString(actual),
-                               sourceLine,
-                               message );
+template<class T>
+void assertLessEqual(const T &expected,
+                     const T &actual,
+                     SourceLine sourceLine,
+                     const std::string &message) {
+    if (!assertion_traits<T>::lessEqual(actual, expected)) {
+        Asserter::failNotLessEqual(assertion_traits<T>::toString(expected),
+                                   assertion_traits<T>::toString(actual),
+                                   sourceLine,
+                                   message);
     }
 }
 
@@ -213,18 +198,16 @@ void assertLessEqual( const T& expected,
  * Use CPPUNIT_ASSERT_LESSEQUAL, CPPUNIT_ASSERT_GREATEREQUAL instead of this function.
  * \sa assertion_traits, Asserter::failNotLessEqual().
  */
-template <class T>
-void assertGreaterEqual( const T& expected,
-                      const T& actual,
-                      SourceLine sourceLine,
-                      const std::string& message )
-{
-    if ( !assertion_traits<T>::lessEqual(expected,actual) )
-    {
-        Asserter::failNotGreaterEqual( assertion_traits<T>::toString(expected),
-                               assertion_traits<T>::toString(actual),
-                               sourceLine,
-                               message );
+template<class T>
+void assertGreaterEqual(const T &expected,
+                        const T &actual,
+                        SourceLine sourceLine,
+                        const std::string &message) {
+    if (!assertion_traits<T>::lessEqual(expected, actual)) {
+        Asserter::failNotGreaterEqual(assertion_traits<T>::toString(expected),
+                                      assertion_traits<T>::toString(actual),
+                                      sourceLine,
+                                      message);
     }
 }
 /* A set of macros which allow us to get the line number
@@ -255,7 +238,7 @@ void assertGreaterEqual( const T& expected,
  * \param condition If this condition evaluates to \c false then the
  *                  test failed.
  */
-#define CPPUNIT_ASSERT_MESSAGE(message,condition)                          \
+#define CPPUNIT_ASSERT_MESSAGE(message, condition)                          \
   ( CPPUNIT_NS::Asserter::failIf( !(condition),                            \
                                   CPPUNIT_NS::Message( "assertion failed", \
                                                        "Expression: "      \
@@ -267,7 +250,7 @@ void assertGreaterEqual( const T& expected,
  * \ingroup Assertions
  * \param message Message reported in diagnostic.
  */
-#define CPPUNIT_FAIL( message )                                         \
+#define CPPUNIT_FAIL(message)                                         \
   ( CPPUNIT_NS::Asserter::fail( CPPUNIT_NS::Message( "forced failure",  \
                                                      message ),         \
                                 CPPUNIT_SOURCELINE() ) )
@@ -295,7 +278,7 @@ void assertGreaterEqual( const T& expected,
  * The last two requirements (serialization and comparison) can be
  * removed by specializing the CppUnit::assertion_traits.
  */
-#define CPPUNIT_ASSERT_EQUAL(expected,actual)          \
+#define CPPUNIT_ASSERT_EQUAL(expected, actual)          \
   ( CPPUNIT_NS::assertEquals( (expected),              \
                               (actual),                \
                               CPPUNIT_SOURCELINE(),    \
@@ -319,7 +302,7 @@ void assertGreaterEqual( const T& expected,
  * The last two requirements (serialization and comparison) can be
  * removed by specializing the CppUnit::assertion_traits.
  */
-#define CPPUNIT_ASSERT_EQUAL_MESSAGE(message,expected,actual)      \
+#define CPPUNIT_ASSERT_EQUAL_MESSAGE(message, expected, actual)      \
   ( CPPUNIT_NS::assertEquals( (expected),              \
                               (actual),                \
                               CPPUNIT_SOURCELINE(),    \
@@ -439,7 +422,7 @@ void assertGreaterEqual( const T& expected,
  * If either \c expected or \c actual is a NaN (not a number), then
  * the assertion fails.
  */
-#define CPPUNIT_ASSERT_DOUBLES_EQUAL(expected,actual,delta)        \
+#define CPPUNIT_ASSERT_DOUBLES_EQUAL(expected, actual, delta)        \
   ( CPPUNIT_NS::assertDoubleEquals( (expected),            \
                                     (actual),              \
                                     (delta),               \
@@ -452,7 +435,7 @@ void assertGreaterEqual( const T& expected,
  * \ingroup Assertions
  * \sa CPPUNIT_ASSERT_DOUBLES_EQUAL for detailed semantic of the assertion.
  */
-#define CPPUNIT_ASSERT_DOUBLES_EQUAL_MESSAGE(message,expected,actual,delta)  \
+#define CPPUNIT_ASSERT_DOUBLES_EQUAL_MESSAGE(message, expected, actual, delta)  \
   ( CPPUNIT_NS::assertDoubleEquals( (expected),            \
                                     (actual),              \
                                     (delta),               \
@@ -468,7 +451,7 @@ void assertGreaterEqual( const T& expected,
  *  CPPUNIT_ASSERT_THROW( v.at( 50 ), std::out_of_range );
  * \endcode
  */
-# define CPPUNIT_ASSERT_THROW( expression, ExceptionType )              \
+# define CPPUNIT_ASSERT_THROW(expression, ExceptionType)              \
    CPPUNIT_ASSERT_THROW_MESSAGE( CPPUNIT_NS::AdditionalMessage(),       \
                                  expression,                            \
                                  ExceptionType )
@@ -479,12 +462,12 @@ void assertGreaterEqual( const T& expected,
 #define CPPUNIT_EXTRACT_EXCEPTION_TYPE_( exception, no_rtti_message ) \
    CPPUNIT_NS::TypeInfoHelper::getClassName( typeid(exception) )
 #else
-#define CPPUNIT_EXTRACT_EXCEPTION_TYPE_( exception, no_rtti_message ) \
+#define CPPUNIT_EXTRACT_EXCEPTION_TYPE_(exception, no_rtti_message) \
    std::string( no_rtti_message )
 #endif // CPPUNIT_USE_TYPEINFO_NAME
 
 // implementation detail
-#define CPPUNIT_GET_PARAMETER_STRING( parameter ) #parameter
+#define CPPUNIT_GET_PARAMETER_STRING(parameter) #parameter
 
 /** Asserts that the given expression throws an exception of the specified type, 
  * setting a user supplied message in case of failure. 
@@ -495,7 +478,7 @@ void assertGreaterEqual( const T& expected,
  *  CPPUNIT_ASSERT_THROW_MESSAGE( "- std::vector<int> v;", v.at( 50 ), std::out_of_range );
  * \endcode
  */
-# define CPPUNIT_ASSERT_THROW_MESSAGE( message, expression, ExceptionType )   \
+# define CPPUNIT_ASSERT_THROW_MESSAGE(message, expression, ExceptionType)   \
    do {                                                                       \
       bool cpputCorrectExceptionThrown_ = false;                              \
       CPPUNIT_NS::Message cpputMsg_( "expected exception not thrown" );       \
@@ -533,7 +516,7 @@ void assertGreaterEqual( const T& expected,
  *  CPPUNIT_ASSERT_NO_THROW( v.at( 0 ) );
  * \endcode
  */
-# define CPPUNIT_ASSERT_NO_THROW( expression )                             \
+# define CPPUNIT_ASSERT_NO_THROW(expression)                             \
    CPPUNIT_ASSERT_NO_THROW_MESSAGE( CPPUNIT_NS::AdditionalMessage(),       \
                                     expression )
 
@@ -548,7 +531,7 @@ void assertGreaterEqual( const T& expected,
  *  CPPUNIT_ASSERT_NO_THROW( "std::vector<int> v;", v.at( 0 ) );
  * \endcode
  */
-# define CPPUNIT_ASSERT_NO_THROW_MESSAGE( message, expression )               \
+# define CPPUNIT_ASSERT_NO_THROW_MESSAGE(message, expression)               \
    do {                                                                       \
       CPPUNIT_NS::Message cpputMsg_( "unexpected exception caught" );         \
       cpputMsg_.addDetail( message );                                         \
@@ -578,7 +561,7 @@ void assertGreaterEqual( const T& expected,
  *   CPPUNIT_ASSERT_ASSERTION_FAIL( CPPUNIT_ASSERT( 1 == 2 ) );
  * \endcode
  */
-# define CPPUNIT_ASSERT_ASSERTION_FAIL( assertion )                 \
+# define CPPUNIT_ASSERT_ASSERTION_FAIL(assertion)                 \
    CPPUNIT_ASSERT_THROW( assertion, CPPUNIT_NS::Exception )
 
 
@@ -591,7 +574,7 @@ void assertGreaterEqual( const T& expected,
  *   CPPUNIT_ASSERT_ASSERTION_FAIL_MESSAGE( "1 == 2", CPPUNIT_ASSERT( 1 == 2 ) );
  * \endcode
  */
-# define CPPUNIT_ASSERT_ASSERTION_FAIL_MESSAGE( message, assertion )    \
+# define CPPUNIT_ASSERT_ASSERTION_FAIL_MESSAGE(message, assertion)    \
    CPPUNIT_ASSERT_THROW_MESSAGE( message, assertion, CPPUNIT_NS::Exception )
 
 
@@ -603,7 +586,7 @@ void assertGreaterEqual( const T& expected,
  *   CPPUNIT_ASSERT_ASSERTION_PASS( CPPUNIT_ASSERT( 1 == 1 ) );
  * \endcode
  */
-# define CPPUNIT_ASSERT_ASSERTION_PASS( assertion )                 \
+# define CPPUNIT_ASSERT_ASSERTION_PASS(assertion)                 \
    CPPUNIT_ASSERT_NO_THROW( assertion )
 
 
@@ -616,7 +599,7 @@ void assertGreaterEqual( const T& expected,
  *   CPPUNIT_ASSERT_ASSERTION_PASS_MESSAGE( "1 != 1", CPPUNIT_ASSERT( 1 == 1 ) );
  * \endcode
  */
-# define CPPUNIT_ASSERT_ASSERTION_PASS_MESSAGE( message, assertion )    \
+# define CPPUNIT_ASSERT_ASSERTION_PASS_MESSAGE(message, assertion)    \
    CPPUNIT_ASSERT_NO_THROW_MESSAGE( message, assertion )
 
 

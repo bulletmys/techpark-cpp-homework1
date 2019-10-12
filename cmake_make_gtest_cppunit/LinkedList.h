@@ -2,41 +2,43 @@
 #define LECTURE2_LINKEDLIST_H_
 
 struct Node {
-  Node()
-      : data(0),
-        next(nullptr),
-        prev(nullptr) {}
+    Node()
+            : data(0),
+              next(nullptr),
+              prev(nullptr) {}
 
-  int data;
-  Node* next;
-  Node* prev;
+    int data;
+    Node *next;
+    Node *prev;
 };
 
 // http://ru.cppreference.com/w/cpp/container/list
 
 class LinkedList {
- public:
-  LinkedList();
-  virtual ~LinkedList();
+public:
+    LinkedList();
 
-  void PushBack(int val);
+    virtual ~LinkedList();
 
-  void Display();
+    void PushBack(int val);
 
-  Node* Front() const { return head_; };
-  Node* Back() const { return tail_; };
+    void Display();
 
-  Node* Search(int val);
+    Node *Front() const { return head_; };
 
-  Node* InsertAfter(Node* node, int data);
+    Node *Back() const { return tail_; };
 
-  bool DeteleAt(Node* node);
+    Node *Search(int val);
 
-  static void Union(LinkedList* list1, LinkedList* list2);
+    Node *InsertAfter(Node *node, int data);
 
- private:
-  Node* head_;
-  Node* tail_;
+    bool DeteleAt(Node *node);
+
+    static void Union(LinkedList *list1, LinkedList *list2);
+
+private:
+    Node *head_;
+    Node *tail_;
 };
 
 #endif  // LECTURE2_LINKEDLIST_H_

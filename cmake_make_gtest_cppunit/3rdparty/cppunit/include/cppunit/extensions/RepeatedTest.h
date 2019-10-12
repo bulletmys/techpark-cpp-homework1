@@ -8,6 +8,7 @@ CPPUNIT_NS_BEGIN
 
 
 class Test;
+
 class TestResult;
 
 
@@ -15,25 +16,31 @@ class TestResult;
  *
  * Does not assume ownership of the test it decorates
  */
-class CPPUNIT_API RepeatedTest : public TestDecorator 
+class CPPUNIT_API RepeatedTest
+
+: public TestDecorator
 {
 public:
-  RepeatedTest( Test *test, 
-                int timesRepeat ) : 
-      TestDecorator( test ), 
-      m_timesRepeat(timesRepeat) 
-  {
-  }
+RepeatedTest( Test
+*test,
+int timesRepeat
+) :
 
-  void run( TestResult *result );
+TestDecorator ( test ),
+m_timesRepeat(timesRepeat) {
+}
 
-  int countTestCases() const;
+void run(TestResult *result);
+
+int countTestCases() const;
 
 private:
-  RepeatedTest( const RepeatedTest & );
-  void operator=( const RepeatedTest & );
 
-  const int m_timesRepeat;
+RepeatedTest(const RepeatedTest &);
+
+void operator=(const RepeatedTest &);
+
+const int m_timesRepeat;
 };
 
 

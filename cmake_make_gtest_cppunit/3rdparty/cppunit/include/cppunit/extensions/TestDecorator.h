@@ -17,29 +17,38 @@ class TestResult;
  * subclass the decorater and use it to wrap the test class.
  *
  * Assumes ownership of the test it decorates
- */ 
-class CPPUNIT_API TestDecorator : public Test
+ */
+class CPPUNIT_API TestDecorator
+
+: public Test
 {
 public:
-  TestDecorator( Test *test );
-  ~TestDecorator();
+TestDecorator( Test
+*test );
+~
 
-  int countTestCases() const;
+TestDecorator();
 
-  std::string getName() const;
+int countTestCases() const;
 
-  void run( TestResult *result );
+std::string getName() const;
 
-  int getChildTestCount() const;
+void run(TestResult *result);
+
+int getChildTestCount() const;
 
 protected:
-  Test *doGetChildTestAt( int index ) const;
 
-  Test *m_test;
+Test *doGetChildTestAt(int index) const;
+
+Test *m_test;
 
 private:
-  TestDecorator( const TestDecorator &);
-  void operator =( const TestDecorator & );
+
+TestDecorator(const TestDecorator &);
+
+void operator=(const TestDecorator &);
+
 };
 
 

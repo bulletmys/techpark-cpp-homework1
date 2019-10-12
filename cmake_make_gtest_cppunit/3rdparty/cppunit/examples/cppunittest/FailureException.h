@@ -3,8 +3,8 @@
 
 
 class FailureException
-{
-};
+        {
+        };
 
 
 #endif  // FAILUREEXCEPTION_H

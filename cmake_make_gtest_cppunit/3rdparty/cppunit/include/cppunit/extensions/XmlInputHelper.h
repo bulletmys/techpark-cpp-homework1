@@ -10,14 +10,13 @@
  *                   type: void testMethod(std::istream& param_in, std::istream& exp_in);
  * \see  CPPUNIT_TEST_SUITE.
  */
-#define CPPUNIT_TEST_XML( testMethod)											                    \
-	CPPUNIT_TEST_ADD( new CppUnit::ParameterizedTestCase<ThisTestFixtureType>(  \
-					context.getTestNameFor( #testMethod ),							                \
-					#testMethod,												                                \
-					&TestFixtureType::testMethod,							                          \
-					context.makeFixture(),										                          \
-					context.getStringProperty( std::string("XmlFileName") ) ) )
-
+#define CPPUNIT_TEST_XML(testMethod)                                                                \
+    CPPUNIT_TEST_ADD( new CppUnit::ParameterizedTestCase<ThisTestFixtureType>(  \
+                    context.getTestNameFor( #testMethod ),                                            \
+                    #testMethod,                                                                                \
+                    &TestFixtureType::testMethod,                                                      \
+                    context.makeFixture(),                                                                  \
+                    context.getStringProperty( std::string("XmlFileName") ) ) )
 
 
 #endif // CPPUNIT_EXTENSIONS_XMLINPUTHELPER_H

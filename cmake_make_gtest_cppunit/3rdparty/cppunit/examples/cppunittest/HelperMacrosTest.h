@@ -5,52 +5,58 @@
 #include "MockTestListener.h"
 
 
-class HelperMacrosTest : public CPPUNIT_NS::TestFixture
-{
-  CPPUNIT_TEST_SUITE( HelperMacrosTest );
-  CPPUNIT_TEST( testNoSubclassing );
-  CPPUNIT_TEST( testSubclassing );
-  CPPUNIT_TEST( testFail );
-  CPPUNIT_TEST( testFailToFail );
-  CPPUNIT_TEST( testException );
-  CPPUNIT_TEST( testExceptionNotCaught );
-  CPPUNIT_TEST( testCustomTests );
-  CPPUNIT_TEST( testAddTest );
-  CPPUNIT_TEST( testParameterizedTests );
-  CPPUNIT_TEST_SUITE_END();
+class HelperMacrosTest : public CPPUNIT_NS::TestFixture {
+    CPPUNIT_TEST_SUITE( HelperMacrosTest );
+    CPPUNIT_TEST( testNoSubclassing );
+    CPPUNIT_TEST( testSubclassing );
+    CPPUNIT_TEST( testFail );
+    CPPUNIT_TEST( testFailToFail );
+    CPPUNIT_TEST( testException );
+    CPPUNIT_TEST( testExceptionNotCaught );
+    CPPUNIT_TEST( testCustomTests );
+    CPPUNIT_TEST( testAddTest );
+    CPPUNIT_TEST( testParameterizedTests );
+
+    CPPUNIT_TEST_SUITE_END();
 
 public:
-  HelperMacrosTest();
-  virtual ~HelperMacrosTest();
+    HelperMacrosTest();
 
-  virtual void setUp();
-  virtual void tearDown();
+    virtual ~HelperMacrosTest();
 
-  void testNoSubclassing();
+    virtual void setUp();
 
-  void testSubclassing();
+    virtual void tearDown();
 
-  void testFail();
-  void testFailToFail();
+    void testNoSubclassing();
 
-  void testException();
-  void testExceptionNotCaught();
+    void testSubclassing();
 
-  void testCustomTest();
-  void testCustomTests();
-  void testAddTest();
+    void testFail();
 
-  void testParameterizedTests();
+    void testFailToFail();
+
+    void testException();
+
+    void testExceptionNotCaught();
+
+    void testCustomTest();
+
+    void testCustomTests();
+
+    void testAddTest();
+
+    void testParameterizedTests();
 
 private:
-  HelperMacrosTest( const HelperMacrosTest &copy );
-  void operator =( const HelperMacrosTest &copy );
+    HelperMacrosTest(const HelperMacrosTest &copy);
+
+    void operator=(const HelperMacrosTest &copy);
 
 private:
-  CPPUNIT_NS::TestResult *m_result;
-  MockTestListener *m_testListener;
+    CPPUNIT_NS::TestResult *m_result;
+    MockTestListener *m_testListener;
 };
-
 
 
 #endif  // HELPERMACROSTEST_H

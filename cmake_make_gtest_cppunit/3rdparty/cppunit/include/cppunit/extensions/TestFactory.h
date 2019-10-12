@@ -6,19 +6,27 @@
 CPPUNIT_NS_BEGIN
 
 
-class Test;
+        class
+Test;
 
 /*! \brief Abstract Test factory.
  */
-class CPPUNIT_API TestFactory 
+class CPPUNIT_API
+TestFactory
 {
 public:
-  virtual ~TestFactory() {}
 
-  /*! Makes a new test.
-   * \return A new Test.
-   */
-  virtual Test* makeTest() = 0;
+virtual ~TestFactory() {}
+
+/*! Makes a new test.
+ * \return A new Test.
+ */
+virtual Test
+*
+
+makeTest()
+
+= 0;
 };
 
 

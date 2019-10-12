@@ -102,104 +102,105 @@ struct ExpectedExceptionTraits<NoExceptionExpected>
  * \see TestCase
  */
 
-template <class Fixture>
-class TestCaller : public TestCase
-{ 
-  typedef void (Fixture::*TestMethod)();
-    
-public:
-  /*!
-   * Constructor for TestCaller. This constructor builds a new Fixture
-   * instance owned by the TestCaller.
-   * \param name name of this TestCaller
-   * \param test the method this TestCaller calls in runTest()
-   */
-  TestCaller( std::string name, TestMethod test ) :
-	    TestCase( name ), 
-	    m_ownFixture( true ),
-	    m_fixture( new Fixture() ),
-	    m_test_function( std::bind(test, m_fixture) )
-  {
-  }
+        template<class Fixture>
+class TestCaller
+:
+public TestCase
+        {
+                typedef void (Fixture::*TestMethod)();
 
-  /*!
-   * Constructor for TestCaller. 
-   * This constructor does not create a new Fixture instance but accepts
-   * an existing one as parameter. The TestCaller will not own the
-   * Fixture object.
-   * \param name name of this TestCaller
-   * \param test the method this TestCaller calls in runTest()
-   * \param fixture the Fixture to invoke the test method on.
-   */
-  TestCaller(std::string name, TestMethod test, Fixture& fixture) :
-	    TestCase( name ), 
-	    m_ownFixture( false ),
-	    m_fixture( &fixture ),
-	    m_test_function( std::bind(test, &fixture) )
-  {
-  }
-    
-  /*!
-   * Constructor for TestCaller. 
-   * This constructor does not create a new Fixture instance but accepts
-   * an existing one as parameter. The TestCaller will own the
-   * Fixture object and delete it in its destructor.
-   * \param name name of this TestCaller
-   * \param test the method this TestCaller calls in runTest()
-   * \param fixture the Fixture to invoke the test method on.
-   */
-  TestCaller(std::string name, TestMethod test, Fixture* fixture) :
-	    TestCase( name ), 
-	    m_ownFixture( true ),
-	    m_fixture( fixture ),
-	    m_test_function( std::bind(test, fixture) )
-  {
-  }
+                public:
+                /*!
+                 * Constructor for TestCaller. This constructor builds a new Fixture
+                 * instance owned by the TestCaller.
+                 * \param name name of this TestCaller
+                 * \param test the method this TestCaller calls in runTest()
+                 */
+                TestCaller( std::string name, TestMethod test ) :
+                TestCase( name ),
+                m_ownFixture( true ),
+                m_fixture( new Fixture()),
+                m_test_function( std::bind(test, m_fixture))
+                {
+                }
 
-  TestCaller(std::string name, std::function<void()> test_function, Fixture* fixture):
-      TestCase(name),
-      m_ownFixture(true),
-      m_fixture(fixture),
-      m_test_function(test_function)
-    {
-    }
-    
-  ~TestCaller() 
-  {
-    if (m_ownFixture)
-      delete m_fixture;
-  }
+                /*!
+                 * Constructor for TestCaller.
+                 * This constructor does not create a new Fixture instance but accepts
+                 * an existing one as parameter. The TestCaller will not own the
+                 * Fixture object.
+                 * \param name name of this TestCaller
+                 * \param test the method this TestCaller calls in runTest()
+                 * \param fixture the Fixture to invoke the test method on.
+                 */
+                TestCaller(std::string name, TestMethod test, Fixture& fixture) :
+                TestCase( name ),
+                m_ownFixture( false ),
+                m_fixture( &fixture ),
+                m_test_function( std::bind(test, &fixture))
+                {
+                }
 
-  void runTest()
-  { 
-      m_test_function();
-  }  
+                /*!
+                 * Constructor for TestCaller.
+                 * This constructor does not create a new Fixture instance but accepts
+                 * an existing one as parameter. The TestCaller will own the
+                 * Fixture object and delete it in its destructor.
+                 * \param name name of this TestCaller
+                 * \param test the method this TestCaller calls in runTest()
+                 * \param fixture the Fixture to invoke the test method on.
+                 */
+                TestCaller(std::string name, TestMethod test, Fixture* fixture) :
+                TestCase( name ),
+                m_ownFixture( true ),
+                m_fixture( fixture ),
+                m_test_function( std::bind(test, fixture))
+                {
+                }
 
-  void setUp()
-  { 
-  	m_fixture->setUp (); 
-  }
+                TestCaller(std::string name, std::function<void()> test_function, Fixture* fixture):
+                TestCase(name),
+                m_ownFixture(true),
+                m_fixture(fixture),
+                m_test_function(test_function)
+                {
+                }
 
-  void tearDown()
-  { 
-	  m_fixture->tearDown (); 
-  }
+                ~TestCaller()
+                {
+                    if (m_ownFixture)
+                        delete m_fixture;
+                }
 
-  std::string toString() const
-  { 
-  	return "TestCaller " + getName(); 
-  }
+                void runTest()
+                {
+                    m_test_function();
+                }
 
-private: 
-  TestCaller( const TestCaller &other ); 
-  TestCaller &operator =( const TestCaller &other );
+                void setUp()
+                {
+                    m_fixture->setUp();
+                }
 
-private:
-  bool m_ownFixture;
-  Fixture *m_fixture;
-  std::function<void()> m_test_function;
-};
+                void tearDown()
+                {
+                    m_fixture->tearDown();
+                }
 
+                std::string toString() const
+                {
+                    return "TestCaller " + getName();
+                }
+
+                private:
+                TestCaller( const TestCaller &other );
+                TestCaller &operator =( const TestCaller &other );
+
+                private:
+                bool m_ownFixture;
+                Fixture *m_fixture;
+                std::function<void()> m_test_function;
+        };
 
 
 CPPUNIT_NS_END

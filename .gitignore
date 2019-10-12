@@ -1,5 +1,5 @@
 .idea/
-lib/
-test/
-
-
+/test/
+/lib/
+/cmake-build-debug/
+/cmake_make_gtest_cppunit/

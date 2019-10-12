@@ -6,18 +6,21 @@
 CPPUNIT_NS_BEGIN
 
 class Exception;
+
 class Message;
+
 class ProtectorContext;
+
 class TestResult;
 
 
 class CPPUNIT_API Functor
-{
-public:
-  virtual ~Functor();
+        {
+                public:
+                virtual ~Functor();
 
-  virtual bool operator()() const =0;
-};
+                virtual bool operator()() const =0;
+        };
 
 
 /*! \brief Protects one or more test case run.
@@ -45,27 +48,27 @@ public:
  * \sa TestResult, TestCase, TestListener.
  */
 class CPPUNIT_API Protector
-{
-public:
-  virtual ~Protector();
-  
-  virtual bool protect( const Functor &functor,
-                        const ProtectorContext &context ) =0;
+        {
+                public:
+                virtual ~Protector();
 
-protected:
-  void reportError( const ProtectorContext &context,
-                    const Exception &error ) const;
+                virtual bool protect( const Functor &functor,
+                const ProtectorContext &context ) =0;
 
-  void reportError( const ProtectorContext &context,
-                    const Message &message,
-                    const SourceLine &sourceLine = SourceLine() ) const;
+                protected:
+                void reportError( const ProtectorContext &context,
+                const Exception &error ) const;
 
-  void reportFailure( const ProtectorContext &context,
-                      const Exception &failure ) const;
+                void reportError( const ProtectorContext &context,
+                const Message &message,
+                const SourceLine &sourceLine = SourceLine()) const;
 
-  Message actualMessage( const Message &message,
-                         const ProtectorContext &context ) const;
-};
+                void reportFailure( const ProtectorContext &context,
+                const Exception &failure ) const;
+
+                Message actualMessage( const Message &message,
+                const ProtectorContext &context ) const;
+        };
 
 
 /*! \brief Scoped protector push to TestResult.
@@ -74,20 +77,20 @@ protected:
  * life-time.
  */
 class CPPUNIT_API ProtectorGuard
-{
-public:
-  /// Pushes the specified protector.
-  ProtectorGuard( TestResult *result,
-                  Protector *protector );
+        {
+                public:
+                /// Pushes the specified protector.
+                ProtectorGuard( TestResult *result,
+                Protector *protector );
 
-  /// Pops the protector.
-  ~ProtectorGuard();
+                /// Pops the protector.
+                ~ProtectorGuard();
 
-private:
-  ProtectorGuard( const ProtectorGuard& ); /* not copyable */
-  ProtectorGuard& operator=( const ProtectorGuard& ); /* not assignable */
-  TestResult *m_result;
-};
+                private:
+                ProtectorGuard( const ProtectorGuard& ); /* not copyable */
+                ProtectorGuard& operator=( const ProtectorGuard& ); /* not assignable */
+                TestResult *m_result;
+        };
 
 CPPUNIT_NS_END
 

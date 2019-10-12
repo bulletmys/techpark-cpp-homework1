@@ -3,92 +3,81 @@
 CPPUNIT_NS_BEGIN
 
 
-class ProtectorChain::ProtectFunctor : public Functor
-{
+class ProtectorChain::ProtectFunctor : public Functor {
 public:
-  ProtectFunctor( Protector *protector,
-                  const Functor &functor,
-                  const ProtectorContext &context )
-      : m_protector( protector )
-      , m_functor( functor )
-      , m_context( context )
-  {
-  }
+    ProtectFunctor(Protector *protector,
+                   const Functor &functor,
+                   const ProtectorContext &context)
+            : m_protector(protector), m_functor(functor), m_context(context) {
+    }
 
-  bool operator()() const
-  {
-    return m_protector->protect( m_functor, m_context );
-  }
+    bool operator()() const {
+        return m_protector->protect(m_functor, m_context);
+    }
 
 private:
-  // disable copying
-  ProtectFunctor( const ProtectFunctor& );
-  // disable copying
-  ProtectFunctor& operator=( const ProtectFunctor& );
+    // disable copying
+    ProtectFunctor(const ProtectFunctor &);
 
-  Protector *m_protector;
-  const Functor &m_functor;
-  const ProtectorContext &m_context;
+    // disable copying
+    ProtectFunctor &operator=(const ProtectFunctor &);
+
+    Protector *m_protector;
+    const Functor &m_functor;
+    const ProtectorContext &m_context;
 };
 
 ProtectorChain::ProtectorChain()
-    : m_protectors(0)
-{
+        : m_protectors(0) {
 }
 
-ProtectorChain::~ProtectorChain()
-{
-  while ( count() > 0 )
-    pop();
-}
-
-
-void 
-ProtectorChain::push( Protector *protector )
-{
-  m_protectors.push_back( protector );
+ProtectorChain::~ProtectorChain() {
+    while (count() > 0)
+        pop();
 }
 
 
-void 
-ProtectorChain::pop()
-{
-  delete m_protectors.back();
-  m_protectors.pop_back();
-}
-
-int 
-ProtectorChain::count() const
-{
-  return m_protectors.size();
+void
+ProtectorChain::push(Protector *protector) {
+    m_protectors.push_back(protector);
 }
 
 
-bool 
-ProtectorChain::protect( const Functor &functor,
-                         const ProtectorContext &context )
-{
-  if ( m_protectors.empty() )
-    return functor();
+void
+ProtectorChain::pop() {
+    delete m_protectors.back();
+    m_protectors.pop_back();
+}
 
-  Functors functors;
-  for ( int index = m_protectors.size()-1; index >= 0; --index )
-  {
-    const Functor &protectedFunctor = 
-              functors.empty() ? functor : *functors.back();
+int
+ProtectorChain::count() const {
+    return m_protectors.size();
+}
 
-    functors.push_back( new ProtectFunctor( m_protectors[index],
-                                            protectedFunctor, 
-                                            context ) );
-  }
 
-  const Functor &outermostFunctor = *functors.back();
-  bool succeed = outermostFunctor();
+bool
+ProtectorChain::protect(const Functor &functor,
+                        const ProtectorContext &context) {
+    if (m_protectors.empty())
+        return functor();
 
-  for ( unsigned int deletingIndex = 0; deletingIndex < m_protectors.size(); ++deletingIndex )
-    delete functors[deletingIndex];
+    Functors functors;
+    for (int index = m_protectors.size() - 1; index >= 0; --index) {
+        const Functor &protectedFunctor =
+                functors.empty() ? functor : *functors.back();
 
-  return succeed;
+        functors.push_back(new ProtectFunctor(m_protectors[index],
+                                              protectedFunctor,
+                                              context));
+    }
+
+    const Functor &outermostFunctor = *functors.back();
+    bool succeed = outermostFunctor();
+
+    for (unsigned int deletingIndex = 0; deletingIndex < m_protectors.size(); ++deletingIndex)
+        delete functors[deletingIndex];
+
+    return succeed;
 }
 
 

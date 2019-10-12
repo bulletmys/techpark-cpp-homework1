@@ -6,26 +6,27 @@
 #include <cstddef>
 
 class Queue {
- public:
-  Queue(size_t size);
-  virtual ~Queue();
+public:
+    Queue(size_t size);
 
-  void Push(int val);
-  
-  // Pop == Dequeue
-  int Pop();
+    virtual ~Queue();
 
-  int Front() const;
+    void Push(int val);
 
-  int Back() const;
+    // Pop == Dequeue
+    int Pop();
 
-  bool Empty() const { return head_ == tail_; }
+    int Front() const;
 
- private:
-  int* buffer_;
-  size_t queue_size_;
-  int head_;
-  int tail_;
+    int Back() const;
+
+    bool Empty() const { return head_ == tail_; }
+
+private:
+    int *buffer_;
+    size_t queue_size_;
+    int head_;
+    int tail_;
 };
 
 #endif  // LESSON2_QUEUE_

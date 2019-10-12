@@ -4,41 +4,45 @@
 #include <cppunit/TestCase.h>
 
 
-class Tracker
-{
+class Tracker {
 public:
-  virtual ~Tracker() {}
+    virtual ~Tracker() {}
 
-  virtual void onConstructor() {}
-  virtual void onDestructor() {}
-  virtual void onSetUp() {}
-  virtual void onTearDown() {}
-  virtual void onTest() {};
+    virtual void onConstructor() {}
+
+    virtual void onDestructor() {}
+
+    virtual void onSetUp() {}
+
+    virtual void onTearDown() {}
+
+    virtual void onTest() {};
 };
 
 
-class TrackedTestCase : public CPPUNIT_NS::TestCase
-{
+class TrackedTestCase : public CPPUNIT_NS::TestCase {
 public:
-  TrackedTestCase();
+    TrackedTestCase();
 
-  virtual ~TrackedTestCase();
+    virtual ~TrackedTestCase();
 
-  virtual void setUp();
-  virtual void tearDown();
+    virtual void setUp();
 
-  void test();
+    virtual void tearDown();
 
-  static void setTracker( Tracker *tracker );
-  static void removeTracker();
+    void test();
 
-private:
-  TrackedTestCase( const TrackedTestCase &copy );
+    static void setTracker(Tracker *tracker);
 
-  void operator =( const TrackedTestCase &copy );
+    static void removeTracker();
 
 private:
-  static Tracker *ms_tracker;
+    TrackedTestCase(const TrackedTestCase &copy);
+
+    void operator=(const TrackedTestCase &copy);
+
+private:
+    static Tracker *ms_tracker;
 };
 
 

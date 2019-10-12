@@ -37,37 +37,42 @@ CPPUNIT_NS_BEGIN
  * \see Test 
  * \see TestCaller
  */
-class CPPUNIT_API TestSuite : public TestComposite
+class CPPUNIT_API TestSuite
+: public TestComposite
 {
 public:
-  /*! Constructs a test suite with the specified name.
-   */
-  TestSuite( std::string name = "" );
+/*! Constructs a test suite with the specified name.
+ */
+TestSuite( std::string
+name = ""
+);
 
-  ~TestSuite();
+~
 
-  /*! Adds the specified test to the suite.
-   * \param test Test to add. Must not be \c NULL.
-    */
-  void addTest( Test *test );
+TestSuite();
 
-  /*! Returns the list of the tests (DEPRECATED).
-   * \deprecated Use getChildTestCount() & getChildTestAt() of the 
-   *             TestComposite interface instead.
-   * \return Reference on a vector that contains the tests of the suite.
-   */
-  const std::vector<Test *> &getTests() const;
+/*! Adds the specified test to the suite.
+ * \param test Test to add. Must not be \c NULL.
+  */
+void addTest(Test *test);
 
-  /*! Destroys all the tests of the suite.
-   */
-  virtual void deleteContents();
+/*! Returns the list of the tests (DEPRECATED).
+ * \deprecated Use getChildTestCount() & getChildTestAt() of the
+ *             TestComposite interface instead.
+ * \return Reference on a vector that contains the tests of the suite.
+ */
+const std::vector<Test *> &getTests() const;
 
-  int getChildTestCount() const;
+/*! Destroys all the tests of the suite.
+ */
+virtual void deleteContents();
 
-  Test *doGetChildTestAt( int index ) const;
+int getChildTestCount() const;
+
+Test *doGetChildTestAt(int index) const;
 
 private:
-  std::vector<Test *> m_tests;
+std::vector<Test *> m_tests;
 };
 
 

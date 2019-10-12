@@ -8,10 +8,12 @@ CPPUNIT_NS_BEGIN
 
 
 class Test;
-class TestFailure;
-class XmlDocument;
-class XmlElement;
 
+class TestFailure;
+
+class XmlDocument;
+
+class XmlElement;
 
 
 /*! \brief Hook to customize Xml output.
@@ -115,47 +117,47 @@ class XmlElement;
  * \see XmlOutputter, CppUnitTestPlugIn.
  */
 class CPPUNIT_API XmlOutputterHook
-{
-public:
-  /*! Called before any elements is added to the root element.
-   * \param document XML Document being created.
-   */
-  virtual void beginDocument( XmlDocument *document );
+        {
+                public:
+                /*! Called before any elements is added to the root element.
+                 * \param document XML Document being created.
+                 */
+                virtual void beginDocument( XmlDocument *document );
 
-  /*! Called after adding all elements to the root element.
-   * \param document XML Document being created.
-   */
-  virtual void endDocument( XmlDocument *document );
+                /*! Called after adding all elements to the root element.
+                 * \param document XML Document being created.
+                 */
+                virtual void endDocument( XmlDocument *document );
 
-  /*! Called after adding a fail test element.
-   * \param document XML Document being created.
-   * \param testElement \<FailedTest\> element.
-   * \param test Test that failed.
-   * \param failure Test failure data.
-   */
-  virtual void failTestAdded( XmlDocument *document,
-                              XmlElement *testElement,
-                              Test *test,
-                              TestFailure *failure );
+                /*! Called after adding a fail test element.
+                 * \param document XML Document being created.
+                 * \param testElement \<FailedTest\> element.
+                 * \param test Test that failed.
+                 * \param failure Test failure data.
+                 */
+                virtual void failTestAdded( XmlDocument *document,
+                XmlElement *testElement,
+                Test *test,
+                TestFailure *failure );
 
-  /*! Called after adding a successful test element.
-   * \param document XML Document being created.
-   * \param testElement \<Test\> element.
-   * \param test Test that was successful.
-   */
-  virtual void successfulTestAdded( XmlDocument *document,
-                                    XmlElement *testElement,
-                                    Test *test );
+                /*! Called after adding a successful test element.
+                 * \param document XML Document being created.
+                 * \param testElement \<Test\> element.
+                 * \param test Test that was successful.
+                 */
+                virtual void successfulTestAdded( XmlDocument *document,
+                XmlElement *testElement,
+                Test *test );
 
-  /*! Called after adding the statistic element.
-   * \param document XML Document being created.
-   * \param statisticsElement \<Statistics\> element.
-   */
-  virtual void statisticsAdded( XmlDocument *document,
-                                XmlElement *statisticsElement );
+                /*! Called after adding the statistic element.
+                 * \param document XML Document being created.
+                 * \param statisticsElement \<Statistics\> element.
+                 */
+                virtual void statisticsAdded( XmlDocument *document,
+                XmlElement *statisticsElement );
 
-  virtual ~XmlOutputterHook() {}
-};
+                virtual ~XmlOutputterHook() {}
+        };
 
 
 CPPUNIT_NS_END

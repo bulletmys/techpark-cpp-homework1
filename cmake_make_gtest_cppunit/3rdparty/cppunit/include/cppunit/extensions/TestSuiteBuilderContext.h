@@ -14,8 +14,11 @@
 CPPUNIT_NS_BEGIN
 
 class TestSuite;
+
 class TestFixture;
+
 class TestFixtureFactory;
+
 class TestNamer;
 
 /*! \brief Context used when creating test suite in HelperMacros.
@@ -27,89 +30,89 @@ class TestNamer;
  *     CPPUNIT_TEST_SUITE_ADD_CUSTOM_TESTS.
  */
 class CPPUNIT_API TestSuiteBuilderContextBase
-{
-public:
-  /*! \brief Constructs a new context.
-   *
-   * You should not use this. The context is created in 
-   * CPPUNIT_TEST_SUITE().
-   */
-  TestSuiteBuilderContextBase( TestSuite &suite,
-                               const TestNamer &namer,
-                               TestFixtureFactory &factory );
+        {
+                public:
+                /*! \brief Constructs a new context.
+                 *
+                 * You should not use this. The context is created in
+                 * CPPUNIT_TEST_SUITE().
+                 */
+                TestSuiteBuilderContextBase( TestSuite &suite,
+                const TestNamer &namer,
+                TestFixtureFactory &factory );
 
-  virtual ~TestSuiteBuilderContextBase();
+                virtual ~TestSuiteBuilderContextBase();
 
-  TestSuiteBuilderContextBase(TestSuiteBuilderContextBase const &) = default;
-  TestSuiteBuilderContextBase(TestSuiteBuilderContextBase &&) = default;
-  TestSuiteBuilderContextBase & operator =(TestSuiteBuilderContextBase const &) = default;
-  TestSuiteBuilderContextBase & operator =(TestSuiteBuilderContextBase &&) = default;
+                TestSuiteBuilderContextBase(TestSuiteBuilderContextBase const &) = default;
+                TestSuiteBuilderContextBase(TestSuiteBuilderContextBase &&) = default;
+                TestSuiteBuilderContextBase & operator=(TestSuiteBuilderContextBase const &) = default;
+                TestSuiteBuilderContextBase & operator=(TestSuiteBuilderContextBase &&) = default;
 
-  /*! \brief Adds a test to the fixture suite.
-   *
-   * \param test Test to add to the fixture suite. Must not be \c NULL.
-   */
-  void addTest( Test *test );
+                /*! \brief Adds a test to the fixture suite.
+                 *
+                 * \param test Test to add to the fixture suite. Must not be \c NULL.
+                 */
+                void addTest( Test *test );
 
-  /*! \brief Returns the fixture name.
-   * \return Fixture name. It is the name used to name the fixture
-   *         suite.
-   */
-  std::string getFixtureName() const;
+                /*! \brief Returns the fixture name.
+                 * \return Fixture name. It is the name used to name the fixture
+                 *         suite.
+                 */
+                std::string getFixtureName() const;
 
-  /*! \brief Returns the name of the test for the specified method.
-   *
-   * \param testMethodName Name of the method that implements a test.
-   * \return A string that is the concatenation of the test fixture name 
-   *         (returned by getFixtureName()) and\a testMethodName, 
-   *         separated using '::'. This provides a fairly unique name for a given
-   *         test.
-   */
-  std::string getTestNameFor( const std::string &testMethodName ) const;
+                /*! \brief Returns the name of the test for the specified method.
+                 *
+                 * \param testMethodName Name of the method that implements a test.
+                 * \return A string that is the concatenation of the test fixture name
+                 *         (returned by getFixtureName()) and\a testMethodName,
+                 *         separated using '::'. This provides a fairly unique name for a given
+                 *         test.
+                 */
+                std::string getTestNameFor( const std::string &testMethodName ) const;
 
-  /*! \brief Returns the name of the test for the specified method with the corresponding parameter.
-   *
-   * \param testMethodName Name (including a parameter) of the method that implements a test.
-   * \return A string that is the concatenation of the test fixture name
-   *         (returned by getFixtureName()), \a testMethodName,
-   *         separated using '::' and the parameter. This provides a fairly unique name for a given
-   *         test. The parameter must be convertable to std::string through operator<<
-   *         or a specialization of CPPUNIT_NS::StringHelper::toString needs to exist.
-   */
-  template<typename T>
-  std::string getTestNameFor( const std::string &testMethodName, const T& value ) const
-  {
-      return m_namer.getTestNameFor(testMethodName, value);
-  }
+                /*! \brief Returns the name of the test for the specified method with the corresponding parameter.
+                 *
+                 * \param testMethodName Name (including a parameter) of the method that implements a test.
+                 * \return A string that is the concatenation of the test fixture name
+                 *         (returned by getFixtureName()), \a testMethodName,
+                 *         separated using '::' and the parameter. This provides a fairly unique name for a given
+                 *         test. The parameter must be convertable to std::string through operator<<
+                 *         or a specialization of CPPUNIT_NS::StringHelper::toString needs to exist.
+                 */
+                template<typename T>
+                std::string getTestNameFor( const std::string &testMethodName, const T& value ) const
+                {
+                    return m_namer.getTestNameFor(testMethodName, value);
+                }
 
-  /*! \brief Adds property pair.
-   * \param key   PropertyKey string to add.
-   * \param value PropertyValue string to add.
-   */
-  void addProperty( const std::string &key, 
-                    const std::string &value );
-  
-  /*! \brief Returns property value assigned to param key.
-   * \param key PropertyKey string.
-   */
-  const std::string getStringProperty( const std::string &key ) const;
+                /*! \brief Adds property pair.
+                 * \param key   PropertyKey string to add.
+                 * \param value PropertyValue string to add.
+                 */
+                void addProperty( const std::string &key,
+                const std::string &value );
 
-protected:
-  TestFixture *makeTestFixture() const;
+                /*! \brief Returns property value assigned to param key.
+                 * \param key PropertyKey string.
+                 */
+                const std::string getStringProperty( const std::string &key ) const;
 
-  // Notes: we use a vector here instead of a map to work-around the
-  // shared std::map in dll bug in VC6.
-  // See http://www.dinkumware.com/vc_fixes.html for detail.
-  typedef std::pair<std::string,std::string> Property;
-  typedef std::vector<Property> Properties;
+                protected:
+                TestFixture *makeTestFixture() const;
 
-  TestSuite &m_suite;
-  const TestNamer &m_namer;
-  TestFixtureFactory &m_factory;
+                // Notes: we use a vector here instead of a map to work-around the
+                // shared std::map in dll bug in VC6.
+                // See http://www.dinkumware.com/vc_fixes.html for detail.
+                typedef std::pair<std::string, std::string> Property;
+                typedef std::vector<Property> Properties;
 
-private:
-  Properties m_properties;
-};
+                TestSuite &m_suite;
+                const TestNamer &m_namer;
+                TestFixtureFactory &m_factory;
+
+                private:
+                Properties m_properties;
+        };
 
 
 /*! \brief Type-sage context used when creating test suite in HelperMacros.
@@ -117,27 +120,24 @@ private:
  * \sa TestSuiteBuilderContextBase.
  */
 template<class Fixture>
-class TestSuiteBuilderContext : public TestSuiteBuilderContextBase
-{
+class TestSuiteBuilderContext : public TestSuiteBuilderContextBase {
 public:
-  typedef Fixture FixtureType;
+    typedef Fixture FixtureType;
 
-  TestSuiteBuilderContext( TestSuiteBuilderContextBase &contextBase )
-      : TestSuiteBuilderContextBase( contextBase )
-  {
-  }
+    TestSuiteBuilderContext(TestSuiteBuilderContextBase &contextBase)
+            : TestSuiteBuilderContextBase(contextBase) {
+    }
 
-  /*! \brief Returns a new TestFixture instance.
-   * \return A new fixture instance. The fixture instance is returned by
-   *         the TestFixtureFactory passed on construction. The actual type 
-   *         is that of the fixture on which the static method suite() 
-   *         was called.
-   */
-  FixtureType *makeFixture() const
-  {
-    return CPPUNIT_STATIC_CAST( FixtureType *, 
-                                TestSuiteBuilderContextBase::makeTestFixture() );
-  }
+    /*! \brief Returns a new TestFixture instance.
+     * \return A new fixture instance. The fixture instance is returned by
+     *         the TestFixtureFactory passed on construction. The actual type
+     *         is that of the fixture on which the static method suite()
+     *         was called.
+     */
+    FixtureType *makeFixture() const {
+        return CPPUNIT_STATIC_CAST(FixtureType * ,
+                                   TestSuiteBuilderContextBase::makeTestFixture());
+    }
 };
 
 

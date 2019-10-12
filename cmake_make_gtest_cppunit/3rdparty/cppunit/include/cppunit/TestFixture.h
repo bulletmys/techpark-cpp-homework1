@@ -80,17 +80,18 @@ CPPUNIT_NS_BEGIN
  * \see CPPUNIT_TEST_SUB_SUITE, CPPUNIT_TEST, CPPUNIT_TEST_SUITE_END, 
  * \see CPPUNIT_TEST_SUITE_REGISTRATION, CPPUNIT_TEST_EXCEPTION, CPPUNIT_TEST_FAIL.
  */
-class CPPUNIT_API TestFixture
-{
-public:
-  virtual ~TestFixture() {};
+        class
+CPPUNIT_API TestFixture
+        {
+                public:
+                virtual ~TestFixture() {};
 
-  //! \brief Set up context before running a test.
-  virtual void setUp() {};
+        //! \brief Set up context before running a test.
+        virtual void setUp() {};
 
-  //! Clean up after the test run.
-  virtual void tearDown() {};
-};
+        //! Clean up after the test run.
+        virtual void tearDown() {};
+        };
 
 
 CPPUNIT_NS_END

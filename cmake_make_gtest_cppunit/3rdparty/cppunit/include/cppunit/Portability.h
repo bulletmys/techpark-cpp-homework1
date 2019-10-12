@@ -15,14 +15,16 @@
 #    include <cppunit/config/config-msvc6.h>
 #  endif
 #else
+
 #    include <cppunit/config-auto.h>
+
 #endif
 
 // Version number of package
-#ifndef CPPUNIT_VERSION 
+#ifndef CPPUNIT_VERSION
 #define CPPUNIT_VERSION  "1.15.0"
 #endif
- 
+
 #include <cppunit/config/CppUnitApi.h>    // define CPPUNIT_API & CPPUNIT_NEED_DLL_DECL
 #include <cppunit/config/SelectDllLoader.h>
 
@@ -65,7 +67,7 @@
 // If not define, assumes that it's gcc
 // See class CompilerOutputter for format.
 #if !defined(CPPUNIT_COMPILER_LOCATION_FORMAT)
-#if defined(__GNUC__) && ( defined(__APPLE_CPP__) || defined(__APPLE_CC__) )
+#if defined(__GNUC__) && (defined(__APPLE_CPP__) || defined(__APPLE_CC__))
 // gcc/Xcode integration on Mac OS X
 # define CPPUNIT_COMPILER_LOCATION_FORMAT "%p:%l: " 
 #else
@@ -82,9 +84,9 @@
 # define CPPUNIT_STATIC_CAST( TargetType, pointer ) \
     static_cast<TargetType>( pointer )
 #else // defined( CPPUNIT_HAVE_CPP_CAST )
-# define CPPUNIT_CONST_CAST( TargetType, pointer ) \
+# define CPPUNIT_CONST_CAST(TargetType, pointer) \
     ((TargetType)( pointer ))
-# define CPPUNIT_STATIC_CAST( TargetType, pointer ) \
+# define CPPUNIT_STATIC_CAST(TargetType, pointer) \
     ((TargetType)( pointer ))
 #endif // defined( CPPUNIT_HAVE_CPP_CAST )
 
@@ -117,10 +119,10 @@
  * const char *name = CPPUNIT_STRINGIZE( CPPUNIT_PLUGIN_EXPORTED_NAME );
  * \endcode
  */
-#define CPPUNIT_STRINGIZE( symbol ) _CPPUNIT_DO_STRINGIZE( symbol )
+#define CPPUNIT_STRINGIZE(symbol) _CPPUNIT_DO_STRINGIZE( symbol )
 
 /// \internal
-#define _CPPUNIT_DO_STRINGIZE( symbol ) #symbol
+#define _CPPUNIT_DO_STRINGIZE(symbol) #symbol
 
 /*! Joins to symbol after expanding them into string.
  *
@@ -140,13 +142,13 @@
  * is that macro expansion of macro arguments does not
  * occur in CPPUNIT_JOIN2 but does in CPPUNIT_JOIN.
  */
-#define CPPUNIT_JOIN( symbol1, symbol2 ) _CPPUNIT_DO_JOIN( symbol1, symbol2 )
+#define CPPUNIT_JOIN(symbol1, symbol2) _CPPUNIT_DO_JOIN( symbol1, symbol2 )
 
 /// \internal
-#define _CPPUNIT_DO_JOIN( symbol1, symbol2 ) _CPPUNIT_DO_JOIN2( symbol1, symbol2 )
+#define _CPPUNIT_DO_JOIN(symbol1, symbol2) _CPPUNIT_DO_JOIN2( symbol1, symbol2 )
 
 /// \internal
-#define _CPPUNIT_DO_JOIN2( symbol1, symbol2 ) symbol1##symbol2
+#define _CPPUNIT_DO_JOIN2(symbol1, symbol2) symbol1##symbol2
 
 /// \internal Unique suffix for variable name. Can be overridden in platform specific
 /// config-*.h. Default to line number.
@@ -158,7 +160,7 @@
  * \param prefix Prefix added to the line number to create a unique identifier.
  * \see CPPUNIT_TEST_SUITE_REGISTRATION for an example of usage.
  */
-#define CPPUNIT_MAKE_UNIQUE_NAME( prefix ) CPPUNIT_JOIN( prefix, CPPUNIT_UNIQUE_COUNTER )
+#define CPPUNIT_MAKE_UNIQUE_NAME(prefix) CPPUNIT_JOIN( prefix, CPPUNIT_UNIQUE_COUNTER )
 
 /*! Defines wrap colunm for %CppUnit. Used by CompilerOuputter.
  */

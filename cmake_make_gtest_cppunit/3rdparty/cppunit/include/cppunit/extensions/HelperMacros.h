@@ -97,7 +97,7 @@
  * \see CPPUNIT_TEST_SUB_SUITE, CPPUNIT_TEST, CPPUNIT_TEST_SUITE_END, 
  * \see CPPUNIT_TEST_SUITE_REGISTRATION, CPPUNIT_TEST_EXCEPTION, CPPUNIT_TEST_FAIL.
  */
-#define CPPUNIT_TEST_SUITE( ATestFixtureType )                              \
+#define CPPUNIT_TEST_SUITE(ATestFixtureType)                              \
   public:                                                                   \
     typedef ATestFixtureType TestFixtureType;                               \
                                                                             \
@@ -148,7 +148,7 @@
  * \param ASuperClass   Type of the parent class.
  * \see CPPUNIT_TEST_SUITE.
  */
-#define CPPUNIT_TEST_SUB_SUITE( ATestFixtureType, ASuperClass )  \
+#define CPPUNIT_TEST_SUB_SUITE(ATestFixtureType, ASuperClass)  \
   public:                                                        \
     typedef ASuperClass ParentTestFixtureType;                   \
   private:                                                       \
@@ -166,7 +166,7 @@
 #define CPPUNIT_TEST_SUITE_END()                                               \
     }                                                                          \
                                                                                \
-public:									       \
+public:                                           \
     static CPPUNIT_NS::TestSuite *suite()                                      \
     {                                                                          \
       const CPPUNIT_NS::TestNamer &namer = getTestNamer__();                   \
@@ -285,7 +285,7 @@ public:									       \
  * \param test Test to add to the suite. Must be a subclass of Test. The test name
  *             should have been obtained using TestNamer::getTestNameFor().
  */
-#define CPPUNIT_TEST_SUITE_ADD_TEST( test ) \
+#define CPPUNIT_TEST_SUITE_ADD_TEST(test) \
       context.addTest( test )
 
 /*! \brief Add a method to the suite.
@@ -294,14 +294,14 @@ public:									       \
  *                   type: void testMethod();
  * \see  CPPUNIT_TEST_SUITE.
  */
-#define CPPUNIT_TEST( testMethod )                        \
+#define CPPUNIT_TEST(testMethod)                        \
     CPPUNIT_TEST_SUITE_ADD_TEST(                           \
         ( new CPPUNIT_NS::TestCaller<TestFixtureType>(    \
                   context.getTestNameFor( #testMethod),   \
                   &TestFixtureType::testMethod,           \
                   context.makeFixture() ) ) )
 
-#define CPPUNIT_TEST_PARAMETERIZED( testMethod, ... )    \
+#define CPPUNIT_TEST_PARAMETERIZED(testMethod, ...)    \
     for (auto& i : __VA_ARGS__)                                  \
     {                                                           \
         TestFixtureType* fixture = context.makeFixture();       \
@@ -336,7 +336,7 @@ public:									       \
  *                      method.
  * \deprecated Use the assertion macro CPPUNIT_ASSERT_THROW instead.
  */
-#define CPPUNIT_TEST_EXCEPTION( testMethod, ExceptionType )          \
+#define CPPUNIT_TEST_EXCEPTION(testMethod, ExceptionType)          \
   CPPUNIT_TEST_SUITE_ADD_TEST(                                        \
       (new CPPUNIT_NS::ExceptionTestCaseDecorator< ExceptionType >(  \
           new CPPUNIT_NS::TestCaller< TestFixtureType >(             \
@@ -360,7 +360,7 @@ public:									       \
  * \see CreatingNewAssertions.
  * \deprecated Use the assertion macro CPPUNIT_ASSERT_ASSERTION_FAIL instead.
  */
-#define CPPUNIT_TEST_FAIL( testMethod ) \
+#define CPPUNIT_TEST_FAIL(testMethod) \
               CPPUNIT_TEST_EXCEPTION( testMethod, CPPUNIT_NS::Exception )
 
 /*! \brief Adds some custom test cases.
@@ -411,7 +411,7 @@ public:									       \
  * \endcode
  * @param testAdderMethod Name of the method called to add the test cases.
  */
-#define CPPUNIT_TEST_SUITE_ADD_CUSTOM_TESTS( testAdderMethod ) \
+#define CPPUNIT_TEST_SUITE_ADD_CUSTOM_TESTS(testAdderMethod) \
       testAdderMethod( context )
 
 /*! \brief Adds a property to the test suite builder context.
@@ -421,7 +421,7 @@ public:									       \
  * \code
  * CPPUNIT_TEST_SUITE_PROPERTY("XmlFileName", "paraTest.xml"); \endcode
  */
-#define CPPUNIT_TEST_SUITE_PROPERTY( APropertyKey, APropertyValue ) \
+#define CPPUNIT_TEST_SUITE_PROPERTY(APropertyKey, APropertyValue) \
     context.addProperty( std::string(APropertyKey),                 \
                          std::string(APropertyValue) )
 
@@ -446,7 +446,7 @@ public:									       \
  * \see CPPUNIT_TEST_SUITE, CppUnit::AutoRegisterSuite, 
  *      CppUnit::TestFactoryRegistry.
  */
-#define CPPUNIT_TEST_SUITE_REGISTRATION( ATestFixtureType )      \
+#define CPPUNIT_TEST_SUITE_REGISTRATION(ATestFixtureType)      \
   static CPPUNIT_NS::AutoRegisterSuite< ATestFixtureType >       \
              CPPUNIT_MAKE_UNIQUE_NAME(autoRegisterRegistry__ )
 
@@ -488,7 +488,7 @@ public:									       \
  * \see CPPUNIT_TEST_SUITE, CppUnit::AutoRegisterSuite, 
  *      CppUnit::TestFactoryRegistry..
  */
-#define CPPUNIT_TEST_SUITE_NAMED_REGISTRATION( ATestFixtureType, suiteName ) \
+#define CPPUNIT_TEST_SUITE_NAMED_REGISTRATION(ATestFixtureType, suiteName) \
   static CPPUNIT_NS::AutoRegisterSuite< ATestFixtureType >                   \
              CPPUNIT_MAKE_UNIQUE_NAME(autoRegisterRegistry__ )(suiteName)
 
@@ -519,7 +519,7 @@ public:									       \
  * \param to Name of the registry suite \a which is added to.
  * \see CPPUNIT_REGISTRY_ADD_TO_DEFAULT, CPPUNIT_TEST_SUITE_NAMED_REGISTRATION.
  */
-#define CPPUNIT_REGISTRY_ADD( which, to )                                     \
+#define CPPUNIT_REGISTRY_ADD(which, to)                                     \
   static CPPUNIT_NS::AutoRegisterRegistry                                     \
              CPPUNIT_MAKE_UNIQUE_NAME( autoRegisterRegistry__ )( which, to )
 
@@ -532,7 +532,7 @@ public:									       \
  * \param which Name of the registry suite to add to the default registry suite.
  * \see CPPUNIT_REGISTRY_ADD.
  */
-#define CPPUNIT_REGISTRY_ADD_TO_DEFAULT( which )                         \
+#define CPPUNIT_REGISTRY_ADD_TO_DEFAULT(which)                         \
   static CPPUNIT_NS::AutoRegisterRegistry                                \
              CPPUNIT_MAKE_UNIQUE_NAME( autoRegisterRegistry__ )( which )
 

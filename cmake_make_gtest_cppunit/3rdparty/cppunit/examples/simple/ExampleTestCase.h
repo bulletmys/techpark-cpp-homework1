@@ -10,27 +10,30 @@
  *
  */
 
-class ExampleTestCase : public CPPUNIT_NS::TestFixture
-{
-  CPPUNIT_TEST_SUITE( ExampleTestCase );
-  CPPUNIT_TEST( example );
-  CPPUNIT_TEST( anotherExample );
-  CPPUNIT_TEST( testAdd );
-  CPPUNIT_TEST( testEquals );
-  CPPUNIT_TEST_SUITE_END();
+class ExampleTestCase : public CPPUNIT_NS::TestFixture {
+    CPPUNIT_TEST_SUITE( ExampleTestCase );
+    CPPUNIT_TEST( example );
+    CPPUNIT_TEST( anotherExample );
+    CPPUNIT_TEST( testAdd );
+    CPPUNIT_TEST( testEquals );
+
+    CPPUNIT_TEST_SUITE_END();
 
 protected:
-  double m_value1;
-  double m_value2;
+    double m_value1;
+    double m_value2;
 
 public:
-  void setUp();
+    void setUp();
 
 protected:
-  void example();
-  void anotherExample();
-  void testAdd();
-  void testEquals();
+    void example();
+
+    void anotherExample();
+
+    void testAdd();
+
+    void testEquals();
 };
 
 

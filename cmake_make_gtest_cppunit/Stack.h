@@ -6,23 +6,27 @@
 // #include "DArray.h" instead |int* buffer_;|
 
 class Stack {
- public:
-  explicit Stack(size_t size);
-  virtual ~Stack();
+public:
+    explicit Stack(size_t size);
 
-  void Push(int val);
-  int Pop();
-  int Top() const;
-  size_t Size() const;
+    virtual ~Stack();
 
-  bool Empty() const { return top_ == -1; }
+    void Push(int val);
 
-  void Display();
+    int Pop();
 
- private:
-  int* buffer_;
-  size_t stack_size_;
-  size_t top_;
+    int Top() const;
+
+    size_t Size() const;
+
+    bool Empty() const { return top_ == -1; }
+
+    void Display();
+
+private:
+    int *buffer_;
+    size_t stack_size_;
+    size_t top_;
 };
 
 #endif  // LECTURE2_STACK_H_

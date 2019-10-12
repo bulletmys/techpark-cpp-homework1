@@ -12,38 +12,74 @@ CPPUNIT_NS_BEGIN
 
 /*! \brief Methods for converting values to strings. Replaces CPPUNIT_NS::StringTools::toString
  */
-namespace StringHelper
+        namespace
+StringHelper
 {
 
 // work around to handle C++11 enum class correctly. We need an own conversion to std::string
 // as there is no implicit coversion to int for enum class.
 
-template<typename T>
-typename std::enable_if<!std::is_enum<T>::value, std::string>::type toString(const T& x)
-{
-    OStringStream ost;
-    ost << x;
+template<
+typename T
+>
+typename std::enable_if<!std::is_enum<T>::value, std::string>::type
 
-    return ost.str();
+toString(const T
+
+& x)
+{
+OStringStream ost;
+ost <<
+x;
+
+return ost.
+
+str();
+
 }
 
-template<typename T>
-typename std::enable_if<std::is_enum<T>::value, std::string>::type toString(const T& x)
-{
-    OStringStream ost;
-    ost << static_cast<typename std::underlying_type<T>::type>(x);
+template<
+typename T
+>
+typename std::enable_if<std::is_enum<T>::value, std::string>::type
 
-    return ost.str();
+toString(const T
+
+& x)
+{
+OStringStream ost;
+ost << static_cast<
+typename std::underlying_type<T>::type
+>(x);
+
+return ost.
+
+str();
+
 }
 
-template<> inline std::string toString(const signed char& x)
+template<> inline std::string
+
+toString(const signed char
+
+& x)
 {
-    return toString(static_cast<int>(x));
+return
+
+toString (static_cast<int>(x));
+
 }
 
-template<> inline std::string toString(const unsigned char& x)
+template<> inline std::string
+
+toString(const unsigned char
+
+& x)
 {
-    return toString(static_cast<unsigned int>(x));
+return
+
+toString (static_cast<unsigned int>(x));
+
 }
 
 }

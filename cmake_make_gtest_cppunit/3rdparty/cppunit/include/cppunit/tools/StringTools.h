@@ -11,20 +11,27 @@ CPPUNIT_NS_BEGIN
 
 /*! \brief Tool functions to manipulate string.
  */
-struct StringTools
-{
+struct StringTools {
 
-  typedef std::vector<std::string> Strings;
+    typedef std::vector <std::string> Strings;
 
-  static std::string CPPUNIT_API toString( int value );
+    static std::string CPPUNIT_API
 
-  static std::string CPPUNIT_API toString( double value );
+    toString(int value);
 
-  static Strings CPPUNIT_API split( const std::string &text, 
-                                    char separator );
+    static std::string CPPUNIT_API
 
-  static std::string CPPUNIT_API wrap( const std::string &text,
-                                       int wrapColumn = CPPUNIT_WRAP_COLUMN );
+    toString(double value);
+
+    static Strings CPPUNIT_API
+
+    split(const std::string &text,
+          char separator);
+
+    static std::string CPPUNIT_API
+
+    wrap(const std::string &text,
+         int wrapColumn = CPPUNIT_WRAP_COLUMN);
 
 };
 

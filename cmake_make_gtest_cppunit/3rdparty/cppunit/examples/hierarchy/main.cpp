@@ -6,16 +6,14 @@
 #include "ChessTest.h"
 
 
+int
+main() {
+    CPPUNIT_NS::TextUi::TestRunner runner;
 
-int 
-main()
-{
-  CPPUNIT_NS::TextUi::TestRunner runner;
+    runner.addTest(BoardGameTest<BoardGame>::suite());
+    runner.addTest(ChessTest<Chess>::suite());
 
-  runner.addTest( BoardGameTest<BoardGame>::suite() );
-  runner.addTest( ChessTest<Chess>::suite() );
+    bool wasSuccessful = runner.run();
 
-  bool wasSuccessful = runner.run();
-
-  return wasSuccessful ? 0 : 1;
+    return wasSuccessful ? 0 : 1;
 }

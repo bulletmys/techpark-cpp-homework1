@@ -4,54 +4,56 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 
-class TestFailureTest : public CPPUNIT_NS::TestFixture
-{
-  CPPUNIT_TEST_SUITE( TestFailureTest );
-  CPPUNIT_TEST( testConstructorAndGetters );
-  CPPUNIT_TEST( testConstructorAndGettersForError );
-  CPPUNIT_TEST_SUITE_END();
+class TestFailureTest : public CPPUNIT_NS::TestFixture {
+    CPPUNIT_TEST_SUITE( TestFailureTest );
+    CPPUNIT_TEST( testConstructorAndGetters );
+    CPPUNIT_TEST( testConstructorAndGettersForError );
+
+    CPPUNIT_TEST_SUITE_END();
 
 public:
-  TestFailureTest();
-  virtual ~TestFailureTest();
+    TestFailureTest();
 
-  virtual void setUp();
-  virtual void tearDown();
+    virtual ~TestFailureTest();
 
-  void testConstructorAndGetters();
-  void testConstructorAndGettersForError();
+    virtual void setUp();
 
-  void exceptionDestroyed();
+    virtual void tearDown();
 
-private:
-  class ObservedException : public CPPUNIT_NS::Exception
-  {
-  public:
-    ObservedException( TestFailureTest *listener ) : 
-        CPPUNIT_NS::Exception( CPPUNIT_NS::Message("ObservedException" ) ),
-        m_listener( listener )
-    {
-    }
+    void testConstructorAndGetters();
 
-    virtual ~ObservedException() throw()
-    {
-      m_listener->exceptionDestroyed();
-    }
-  private:
-    TestFailureTest *m_listener;
-  };
+    void testConstructorAndGettersForError();
 
-
-  TestFailureTest( const TestFailureTest &copy );
-  void operator =( const TestFailureTest &copy );
-  void checkTestFailure( CPPUNIT_NS::Test *test, 
-                         CPPUNIT_NS::Exception *error,
-                         bool isError );
+    void exceptionDestroyed();
 
 private:
-  bool m_exceptionDestroyed;
+    class ObservedException : public CPPUNIT_NS::Exception {
+    public:
+        ObservedException(TestFailureTest *listener) :
+                CPPUNIT_NS::Exception(CPPUNIT_NS::Message("ObservedException")),
+                m_listener(listener) {
+        }
+
+        virtual ~ObservedException() throw() {
+            m_listener->exceptionDestroyed();
+        }
+
+    private:
+        TestFailureTest *m_listener;
+    };
+
+
+    TestFailureTest(const TestFailureTest &copy);
+
+    void operator=(const TestFailureTest &copy);
+
+    void checkTestFailure(CPPUNIT_NS::Test *test,
+                          CPPUNIT_NS::Exception *error,
+                          bool isError);
+
+private:
+    bool m_exceptionDestroyed;
 };
-
 
 
 #endif  // TESTFAILURETEST_H

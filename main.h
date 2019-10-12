@@ -13,12 +13,19 @@ typedef struct Country {
 } Country;
 
 char Input_char();
+
 char *Input_string();
+
 int Input_int();
+
 int Compare(const void *x1, const void *x2);
+
 void SortByDensity(Country *countries, int num_of_countries);
+
 void PrintCountries(Country *countries, int num_of_countries, int start);
+
 Country *AddCountry(Country *countries, int *cur_num);
+
 int MAIN();
 
 #endif //TECHPATK_CPP_DZ1_MAIN_H

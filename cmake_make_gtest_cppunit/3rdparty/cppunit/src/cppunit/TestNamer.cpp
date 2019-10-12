@@ -5,30 +5,25 @@
 
 CPPUNIT_NS_BEGIN
 
-TestNamer::TestNamer( const std::type_info &typeInfo )
-    : m_fixtureName( TypeInfoHelper::getClassName( typeInfo ) )
-{
+TestNamer::TestNamer(const std::type_info &typeInfo)
+        : m_fixtureName(TypeInfoHelper::getClassName(typeInfo)) {
 }
 
-TestNamer::TestNamer( const std::string &fixtureName )
-  : m_fixtureName( fixtureName )
-{
+TestNamer::TestNamer(const std::string &fixtureName)
+        : m_fixtureName(fixtureName) {
 }
 
-TestNamer::~TestNamer()
-{
+TestNamer::~TestNamer() {
 }
 
-std::string 
-TestNamer::getFixtureName() const
-{
-  return m_fixtureName;
+std::string
+TestNamer::getFixtureName() const {
+    return m_fixtureName;
 }
 
-std::string 
-TestNamer::getTestNameFor( const std::string &testMethodName ) const
-{
-  return getFixtureName() + "::" + testMethodName;
+std::string
+TestNamer::getTestNameFor(const std::string &testMethodName) const {
+    return getFixtureName() + "::" + testMethodName;
 }
 
 CPPUNIT_NS_END

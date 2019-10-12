@@ -14,29 +14,37 @@ CPPUNIT_NS_BEGIN
  * 
  * \see Test, TestSuite.
  */
-class CPPUNIT_API TestComposite : public Test
+class CPPUNIT_API TestComposite
+: public Test
 {
 public:
-  TestComposite( const std::string &name = "" );
 
-  ~TestComposite();
+TestComposite(const std::string &name = "");
 
-  void run( TestResult *result );
+~
 
-  int countTestCases() const;
-  
-  std::string getName() const;
+TestComposite();
 
-private:
-  TestComposite( const TestComposite &other );
-  TestComposite &operator =( const TestComposite &other ); 
+void run(TestResult *result);
 
-  virtual void doStartSuite( TestResult *controller );
-  virtual void doRunChildTests( TestResult *controller );
-  virtual void doEndSuite( TestResult *controller );
+int countTestCases() const;
+
+std::string getName() const;
 
 private:
-  const std::string m_name;
+
+TestComposite(const TestComposite &other);
+
+TestComposite &operator=(const TestComposite &other);
+
+virtual void doStartSuite(TestResult *controller);
+
+virtual void doRunChildTests(TestResult *controller);
+
+virtual void doEndSuite(TestResult *controller);
+
+private:
+const std::string m_name;
 };
 
 

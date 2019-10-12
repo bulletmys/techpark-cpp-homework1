@@ -16,30 +16,35 @@ CPPUNIT_NS_BEGIN
  * Implementation detail.
  * \internal Protector that protect a Functor using a chain of nested Protector.
  */
-class CPPUNIT_API ProtectorChain : public Protector
+class CPPUNIT_API ProtectorChain
+: public Protector
 {
 public:
-  ProtectorChain();
 
-  ~ProtectorChain();
+ProtectorChain();
 
-  void push( Protector *protector );
+~
 
-  void pop();
+ProtectorChain();
 
-  int count() const;
+void push(Protector *protector);
 
-  bool protect( const Functor &functor,
-                const ProtectorContext &context );
+void pop();
+
+int count() const;
+
+bool protect(const Functor &functor,
+             const ProtectorContext &context);
 
 private:
-  class ProtectFunctor;
+
+class ProtectFunctor;
 
 private:
-  typedef std::deque<Protector *> Protectors;
-  Protectors m_protectors;
+typedef std::deque<Protector *> Protectors;
+Protectors m_protectors;
 
-  typedef std::deque<Functor *> Functors;
+typedef std::deque<Functor *> Functors;
 };
 
 

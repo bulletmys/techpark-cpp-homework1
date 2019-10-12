@@ -11,26 +11,32 @@ CPPUNIT_NS_BEGIN
 /*! \brief TestListener that checks if any test case failed.
  * \ingroup TrackingTestExecution
  */
-class CPPUNIT_API TestSuccessListener : public TestListener,
-                                        public SynchronizedObject
+class CPPUNIT_API TestSuccessListener
+: public TestListener,
+public SynchronizedObject
 {
 public:
-  /*! Constructs a TestSuccessListener object.
-   */
-  TestSuccessListener( SynchronizationObject *syncObject = 0 );
+/*! Constructs a TestSuccessListener object.
+ */
+TestSuccessListener( SynchronizationObject
+*
+syncObject = 0
+);
 
-  /// Destructor.
-  virtual ~TestSuccessListener();
+/// Destructor.
+virtual ~
 
-  virtual void reset();
+TestSuccessListener();
 
-  void addFailure( const TestFailure &failure );
+virtual void reset();
 
-  /// Returns whether the entire test was successful or not.
-  virtual bool wasSuccessful() const;
+void addFailure(const TestFailure &failure);
+
+/// Returns whether the entire test was successful or not.
+virtual bool wasSuccessful() const;
 
 private:
-  bool m_success;
+bool m_success;
 };
 
 

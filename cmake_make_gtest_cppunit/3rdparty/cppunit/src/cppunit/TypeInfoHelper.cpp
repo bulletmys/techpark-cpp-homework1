@@ -11,49 +11,49 @@
 
 CPPUNIT_NS_BEGIN
 
-std::string 
-TypeInfoHelper::getClassName( const std::type_info &info )
-{
-#if defined(CPPUNIT_HAVE_GCC_ABI_DEMANGLE)  &&  CPPUNIT_HAVE_GCC_ABI_DEMANGLE
+        std::string
 
-  int status = 0;
-  char* c_name = 0;
+TypeInfoHelper::getClassName(const std::type_info &info) {
+#if defined(CPPUNIT_HAVE_GCC_ABI_DEMANGLE) && CPPUNIT_HAVE_GCC_ABI_DEMANGLE
 
-  const char* c_origName = info.name();
-  if(c_origName[0] == '*')
-      ++c_origName;
-  c_name = abi::__cxa_demangle( c_origName, 0, 0, &status ); 
+    int status = 0;
+    char* c_name = 0;
 
-  std::string name;
-  if(c_name)
-  {
-      name = std::string( c_name );
-      free( c_name );  
-  }
-  else
-  {
-      name = std::string( c_origName );
-  }
+    const char* c_origName = info.name();
+    if(c_origName[0] == '*')
+        ++c_origName;
+    c_name = abi::__cxa_demangle( c_origName, 0, 0, &status );
+
+    std::string name;
+    if(c_name)
+    {
+        name = std::string( c_name );
+        free( c_name );
+    }
+    else
+    {
+        name = std::string( c_origName );
+    }
 
 #else   // CPPUNIT_HAVE_GCC_ABI_DEMANGLE
 
-  static std::string classPrefix( "class " );
-  std::string name( info.name() );
+    static std::string classPrefix("class ");
+    std::string name(info.name());
 
-  // Work around gcc 3.0 bug: strip number before type name.
-  unsigned int firstNotDigitIndex = 0;
-  while ( firstNotDigitIndex < name.length()  &&
-          name[firstNotDigitIndex] >= '0'  &&
-          name[firstNotDigitIndex] <= '9' )
-    ++firstNotDigitIndex;
-  name = name.substr( firstNotDigitIndex );
+    // Work around gcc 3.0 bug: strip number before type name.
+    unsigned int firstNotDigitIndex = 0;
+    while (firstNotDigitIndex < name.length() &&
+           name[firstNotDigitIndex] >= '0' &&
+           name[firstNotDigitIndex] <= '9')
+        ++firstNotDigitIndex;
+    name = name.substr(firstNotDigitIndex);
 
-  if ( name.substr( 0, classPrefix.length() ) == classPrefix )
-    return name.substr( classPrefix.length() );
+    if (name.substr(0, classPrefix.length()) == classPrefix)
+        return name.substr(classPrefix.length());
 
 #endif  // CPPUNIT_HAVE_GCC_ABI_DEMANGLE
 
-  return name;
+    return name;
 }
 
 CPPUNIT_NS_END

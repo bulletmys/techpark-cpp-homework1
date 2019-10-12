@@ -8,6 +8,7 @@ CPPUNIT_NS_BEGIN
 
 
 class Test;
+
 class TestResult;
 
 
@@ -70,64 +71,66 @@ class TestResult;
  * \endcode
  */
 class CPPUNIT_API TestRunner
-{
-public:
-  /*! \brief Constructs a TestRunner object.
-   */
-  TestRunner(  );
+        {
+                public:
+                /*! \brief Constructs a TestRunner object.
+                 */
+                TestRunner(  );
 
-  /// Destructor.
-  virtual ~TestRunner();
+                /// Destructor.
+                virtual ~TestRunner();
 
-  /*! \brief Adds the specified test.
-   * \param test Test to add. The TestRunner takes ownership of the test.
-   */
-  virtual void addTest( Test *test );
+                /*! \brief Adds the specified test.
+                 * \param test Test to add. The TestRunner takes ownership of the test.
+                 */
+                virtual void addTest( Test *test );
 
-  /*! \brief Runs a test using the specified controller.
-   * \param controller Event manager and controller used for testing
-   * \param testPath Test path string. See Test::resolveTestPath() for detail.
-   * \exception std::invalid_argument if no test matching \a testPath is found.
-   *                                  see TestPath::TestPath( Test*, const std::string &)
-   *                                  for detail.
-   */
-  virtual void run( TestResult &controller,
-                    const std::string &testPath = "" );
+                /*! \brief Runs a test using the specified controller.
+                 * \param controller Event manager and controller used for testing
+                 * \param testPath Test path string. See Test::resolveTestPath() for detail.
+                 * \exception std::invalid_argument if no test matching \a testPath is found.
+                 *                                  see TestPath::TestPath( Test*, const std::string &)
+                 *                                  for detail.
+                 */
+                virtual void run( TestResult &controller,
+                const std::string &testPath = "" );
 
-protected:
-  /*! \brief (INTERNAL) Mutating test suite.
-   */
-  class CPPUNIT_API WrappingSuite : public TestSuite
-  {
-  public:
-    WrappingSuite( const std::string &name = "All Tests" );
+                protected:
+                /*! \brief (INTERNAL) Mutating test suite.
+                 */
+                class CPPUNIT_API WrappingSuite :
+                public TestSuite
+                {
+                    public:
+                    WrappingSuite(
+                    const std::string &name = "All Tests" );
 
-    int getChildTestCount() const;
+                    int getChildTestCount() const;
 
-    std::string getName() const;
+                    std::string getName() const;
 
-    void run( TestResult *result );
+                    void run(TestResult *result);
 
-  protected:
-    Test *doGetChildTestAt( int index ) const;
+                    protected:
+                    Test *doGetChildTestAt(int index) const;
 
-    bool hasOnlyOneTest() const;
+                    bool hasOnlyOneTest() const;
 
-    Test *getUniqueChildTest() const;
-  };
+                    Test *getUniqueChildTest() const;
+                };
 
-protected:
-  WrappingSuite *m_suite;
+                protected:
+                WrappingSuite *m_suite;
 
-private:
-  /// Prevents the use of the copy constructor.
-  TestRunner( const TestRunner &copy );
+                private:
+                /// Prevents the use of the copy constructor.
+                TestRunner( const TestRunner &copy );
 
-  /// Prevents the use of the copy operator.
-  void operator =( const TestRunner &copy );
+                /// Prevents the use of the copy operator.
+                void operator=( const TestRunner &copy );
 
-private:
-};
+                private:
+        };
 
 
 CPPUNIT_NS_END

@@ -6,19 +6,19 @@
 namespace heap {
 
 // MaxHeapify or just Heapify
-void SiftDown(DArray& arr, size_t i);
+    void SiftDown(DArray &arr, size_t i);
 
 // MinHeapify or SiftDown or just Heapify
-void SiftUp(DArray& arr, size_t i);
+    void SiftUp(DArray &arr, size_t i);
 
-void MakeHeap(DArray& arr);
+    void MakeHeap(DArray &arr);
 
-void Add(DArray& arr, double element);
+    void Add(DArray &arr, double element);
 
 // std::pop_heap;  http://en.cppreference.com/w/cpp/algorithm/pop_heap
-double ExtractMax(DArray& arr);
+    double ExtractMax(DArray &arr);
 
-double HeapMaximum(DArray& arr);
+    double HeapMaximum(DArray &arr);
 
 }  // namespace heap
 

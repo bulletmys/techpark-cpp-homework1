@@ -12,52 +12,62 @@
 #include <stdexcept>
 
 
-class TestCaseTest : public CPPUNIT_NS::TestFixture
-{
-  CPPUNIT_TEST_SUITE( TestCaseTest );
-  CPPUNIT_TEST( testSetUpFailure );
-  CPPUNIT_TEST( testRunTestFailure );
-  CPPUNIT_TEST( testTearDownFailure );
-  CPPUNIT_TEST( testFailAll );
-  CPPUNIT_TEST( testNoFailure );
-  CPPUNIT_TEST( testTwoRun );
-  CPPUNIT_TEST( testCountTestCases );
-  CPPUNIT_TEST( testDefaultConstructor );
-  CPPUNIT_TEST( testConstructorWithName );
-  CPPUNIT_TEST( testGetChildTestCount );
-  CPPUNIT_TEST_EXCEPTION( testGetChildTestAtThrow, std::out_of_range );
-  CPPUNIT_TEST_SUITE_END();
+class TestCaseTest : public CPPUNIT_NS::TestFixture {
+    CPPUNIT_TEST_SUITE( TestCaseTest );
+    CPPUNIT_TEST( testSetUpFailure );
+    CPPUNIT_TEST( testRunTestFailure );
+    CPPUNIT_TEST( testTearDownFailure );
+    CPPUNIT_TEST( testFailAll );
+    CPPUNIT_TEST( testNoFailure );
+    CPPUNIT_TEST( testTwoRun );
+    CPPUNIT_TEST( testCountTestCases );
+    CPPUNIT_TEST( testDefaultConstructor );
+    CPPUNIT_TEST( testConstructorWithName );
+    CPPUNIT_TEST( testGetChildTestCount );
+    CPPUNIT_TEST_EXCEPTION( testGetChildTestAtThrow, std::out_of_range
+    );
+
+    CPPUNIT_TEST_SUITE_END();
 
 public:
-  TestCaseTest();
+    TestCaseTest();
 
-  virtual ~TestCaseTest();
+    virtual ~TestCaseTest();
 
-  void setUp();
-  void tearDown();
+    void setUp();
 
-  void testSetUpFailure();
-  void testRunTestFailure();
-  void testTearDownFailure();
-  void testFailAll();
-  void testNoFailure();
-  void testTwoRun();
+    void tearDown();
 
-  void testCountTestCases();
+    void testSetUpFailure();
 
-  void testDefaultConstructor();
-  void testConstructorWithName();
+    void testRunTestFailure();
 
-  void testGetChildTestCount();
-  void testGetChildTestAtThrow();
+    void testTearDownFailure();
+
+    void testFailAll();
+
+    void testNoFailure();
+
+    void testTwoRun();
+
+    void testCountTestCases();
+
+    void testDefaultConstructor();
+
+    void testConstructorWithName();
+
+    void testGetChildTestCount();
+
+    void testGetChildTestAtThrow();
 
 private:
-  TestCaseTest( const TestCaseTest &copy );
-  void operator =( const TestCaseTest &copy );
+    TestCaseTest(const TestCaseTest &copy);
 
-  void checkFailure( bool failSetUp, 
-                     bool failRunTest,
-                     bool failTearDown );
+    void operator=(const TestCaseTest &copy);
+
+    void checkFailure(bool failSetUp,
+                      bool failRunTest,
+                      bool failTearDown);
 /*
   void checkResult( int failures,
                     int errors,
@@ -65,8 +75,8 @@ private:
                     CPPUNIT_NS::TestResult *result );
 */
 private:
-  CPPUNIT_NS::TestResult *m_result;
-  MockTestListener *m_testListener;
+    CPPUNIT_NS::TestResult *m_result;
+    MockTestListener *m_testListener;
 };
 
 

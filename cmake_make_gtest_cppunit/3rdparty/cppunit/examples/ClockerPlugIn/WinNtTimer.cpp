@@ -14,64 +14,56 @@
  *
  * @return \c true if sucess, \c false otherwise.
  */
-static bool 
-GetThreadSpentTime( LONGLONG &rquadTime )
-{
-  FILETIME timeCreation;
-  FILETIME timeExit;
-  FILETIME timeKernel;
-  FILETIME timeUser;
-  if ( !::GetThreadTimes( ::GetCurrentThread(),
+static bool
+GetThreadSpentTime(LONGLONG &rquadTime) {
+    FILETIME timeCreation;
+    FILETIME timeExit;
+    FILETIME timeKernel;
+    FILETIME timeUser;
+    if (!::GetThreadTimes(::GetCurrentThread(),
                           &timeCreation,
                           &timeExit,
                           &timeKernel,
-                          &timeUser) )
-  {
-    rquadTime = 0;
-    return false;
-  }
+                          &timeUser)) {
+        rquadTime = 0;
+        return false;
+    }
 
-  LARGE_INTEGER lintKernel;
-  lintKernel.LowPart = timeKernel.dwLowDateTime;
-  lintKernel.HighPart = timeKernel.dwHighDateTime;
+    LARGE_INTEGER lintKernel;
+    lintKernel.LowPart = timeKernel.dwLowDateTime;
+    lintKernel.HighPart = timeKernel.dwHighDateTime;
 
-  LARGE_INTEGER lintUser;
-  lintUser.LowPart = timeUser.dwLowDateTime;
-  lintUser.HighPart = timeUser.dwHighDateTime;
+    LARGE_INTEGER lintUser;
+    lintUser.LowPart = timeUser.dwLowDateTime;
+    lintUser.HighPart = timeUser.dwHighDateTime;
 
-  rquadTime = lintKernel.QuadPart + lintUser.QuadPart;
+    rquadTime = lintKernel.QuadPart + lintUser.QuadPart;
 
-  return true;
+    return true;
 }
 
 
-
-void 
-WinNtTimer::start()
-{
-  m_isValid = GetThreadSpentTime( m_beginTime );
+void
+WinNtTimer::start() {
+    m_isValid = GetThreadSpentTime(m_beginTime);
 
 }
 
 
-void 
-WinNtTimer::finish()
-{
-  LONGLONG quadTimeEnd;
-  LONGLONG quadProcessedElapse;
-  m_isValid = m_isValid  && GetThreadSpentTime( quadTimeEnd );
-  if ( m_isValid )
-  {
-    quadProcessedElapse = quadTimeEnd - m_beginTime;
-    m_elapsedTime = double(quadProcessedElapse) / 10000000;
-  }
-  else
-    m_elapsedTime = -1;
+void
+WinNtTimer::finish() {
+    LONGLONG quadTimeEnd;
+    LONGLONG quadProcessedElapse;
+    m_isValid = m_isValid && GetThreadSpentTime(quadTimeEnd);
+    if (m_isValid) {
+        quadProcessedElapse = quadTimeEnd - m_beginTime;
+        m_elapsedTime = double(quadProcessedElapse) / 10000000;
+    } else
+        m_elapsedTime = -1;
 }
 
 
-double 
-WinNtTimer::elapsedTime() const
-{
-  return m_elapsedTime;
+double
+WinNtTimer::elapsedTime() const {
+    return m_elapsedTime;
 }

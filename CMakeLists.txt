@@ -19,16 +19,16 @@ list(APPEND CATCH_CMAKE_ARGS
 
 ExternalProject_Add(
         catch
-        GIT_REPOSITORY      https://github.com/Bareflank/catch.git
-        GIT_TAG             v1.2
-        GIT_SHALLOW         1
-        CMAKE_ARGS          ${CATCH_CMAKE_ARGS}
-        PREFIX              ${CMAKE_BINARY_DIR}/external/catch/prefix
-        TMP_DIR             ${CMAKE_BINARY_DIR}/external/catch/tmp
-        STAMP_DIR           ${CMAKE_BINARY_DIR}/external/catch/stamp
-        DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/catch/download
-        SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/catch/src
-        BINARY_DIR          ${CMAKE_BINARY_DIR}/external/catch/build
+        GIT_REPOSITORY https://github.com/Bareflank/catch.git
+        GIT_TAG v1.2
+        GIT_SHALLOW 1
+        CMAKE_ARGS ${CATCH_CMAKE_ARGS}
+        PREFIX ${CMAKE_BINARY_DIR}/external/catch/prefix
+        TMP_DIR ${CMAKE_BINARY_DIR}/external/catch/tmp
+        STAMP_DIR ${CMAKE_BINARY_DIR}/external/catch/stamp
+        DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/external/catch/download
+        SOURCE_DIR ${CMAKE_BINARY_DIR}/external/catch/src
+        BINARY_DIR ${CMAKE_BINARY_DIR}/external/catch/build
 )
 
 # ------------------------------------------------------------------------------
@@ -41,16 +41,16 @@ list(APPEND HIPPOMOCKS_CMAKE_ARGS
 
 ExternalProject_Add(
         hippomocks
-        GIT_REPOSITORY      https://github.com/Bareflank/hippomocks.git
-        GIT_TAG             v1.2
-        GIT_SHALLOW         1
-        CMAKE_ARGS          ${HIPPOMOCKS_CMAKE_ARGS}
-        PREFIX              ${CMAKE_BINARY_DIR}/external/hippomocks/prefix
-        TMP_DIR             ${CMAKE_BINARY_DIR}/external/hippomocks/tmp
-        STAMP_DIR           ${CMAKE_BINARY_DIR}/external/hippomocks/stamp
-        DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/hippomocks/download
-        SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/hippomocks/src
-        BINARY_DIR          ${CMAKE_BINARY_DIR}/external/hippomocks/build
+        GIT_REPOSITORY https://github.com/Bareflank/hippomocks.git
+        GIT_TAG v1.2
+        GIT_SHALLOW 1
+        CMAKE_ARGS ${HIPPOMOCKS_CMAKE_ARGS}
+        PREFIX ${CMAKE_BINARY_DIR}/external/hippomocks/prefix
+        TMP_DIR ${CMAKE_BINARY_DIR}/external/hippomocks/tmp
+        STAMP_DIR ${CMAKE_BINARY_DIR}/external/hippomocks/stamp
+        DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/external/hippomocks/download
+        SOURCE_DIR ${CMAKE_BINARY_DIR}/external/hippomocks/src
+        BINARY_DIR ${CMAKE_BINARY_DIR}/external/hippomocks/build
 )
 
 # ------------------------------------------------------------------------------
@@ -63,23 +63,23 @@ list(APPEND GSL_CMAKE_ARGS
 
 ExternalProject_Add(
         gsl
-        GIT_REPOSITORY      https://github.com/Bareflank/GSL.git
-        GIT_TAG             v1.2
-        GIT_SHALLOW         1
-        CMAKE_ARGS          ${GSL_CMAKE_ARGS}
-        PREFIX              ${CMAKE_BINARY_DIR}/external/gsl/prefix
-        TMP_DIR             ${CMAKE_BINARY_DIR}/external/gsl/tmp
-        STAMP_DIR           ${CMAKE_BINARY_DIR}/external/gsl/stamp
-        DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/gsl/download
-        SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/gsl/src
-        BINARY_DIR          ${CMAKE_BINARY_DIR}/external/gsl/build
+        GIT_REPOSITORY https://github.com/Bareflank/GSL.git
+        GIT_TAG v1.2
+        GIT_SHALLOW 1
+        CMAKE_ARGS ${GSL_CMAKE_ARGS}
+        PREFIX ${CMAKE_BINARY_DIR}/external/gsl/prefix
+        TMP_DIR ${CMAKE_BINARY_DIR}/external/gsl/tmp
+        STAMP_DIR ${CMAKE_BINARY_DIR}/external/gsl/stamp
+        DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/external/gsl/download
+        SOURCE_DIR ${CMAKE_BINARY_DIR}/external/gsl/src
+        BINARY_DIR ${CMAKE_BINARY_DIR}/external/gsl/build
 )
 
 # ------------------------------------------------------------------------------
 # Astyle
 # ------------------------------------------------------------------------------
 
-if(ENABLE_ASTYLE)
+if (ENABLE_ASTYLE)
 
     list(APPEND ASTYLE_CMAKE_ARGS
             "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
@@ -87,16 +87,16 @@ if(ENABLE_ASTYLE)
 
     ExternalProject_Add(
             astyle
-            GIT_REPOSITORY      https://github.com/Bareflank/astyle.git
-            GIT_TAG             v1.2
-            GIT_SHALLOW         1
-            CMAKE_ARGS          ${ASTYLE_CMAKE_ARGS}
-            PREFIX              ${CMAKE_BINARY_DIR}/external/astyle/prefix
-            TMP_DIR             ${CMAKE_BINARY_DIR}/external/astyle/tmp
-            STAMP_DIR           ${CMAKE_BINARY_DIR}/external/astyle/stamp
-            DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/astyle/download
-            SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/astyle/src
-            BINARY_DIR          ${CMAKE_BINARY_DIR}/external/astyle/build
+            GIT_REPOSITORY https://github.com/Bareflank/astyle.git
+            GIT_TAG v1.2
+            GIT_SHALLOW 1
+            CMAKE_ARGS ${ASTYLE_CMAKE_ARGS}
+            PREFIX ${CMAKE_BINARY_DIR}/external/astyle/prefix
+            TMP_DIR ${CMAKE_BINARY_DIR}/external/astyle/tmp
+            STAMP_DIR ${CMAKE_BINARY_DIR}/external/astyle/stamp
+            DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/external/astyle/download
+            SOURCE_DIR ${CMAKE_BINARY_DIR}/external/astyle/src
+            BINARY_DIR ${CMAKE_BINARY_DIR}/external/astyle/build
     )
 
     list(APPEND ASTYLE_ARGS
@@ -125,38 +125,38 @@ if(ENABLE_ASTYLE)
             ${CMAKE_SOURCE_DIR}/test/*.cpp
             )
 
-    if(NOT WIN32 STREQUAL "1")
+    if (NOT WIN32 STREQUAL "1")
         add_custom_target(
                 format
                 COMMAND ${CMAKE_BINARY_DIR}/bin/astyle ${ASTYLE_ARGS}
                 COMMENT "running astyle"
         )
-    else()
+    else ()
         add_custom_target(
                 format
                 COMMAND ${CMAKE_BINARY_DIR}/bin/astyle.exe ${ASTYLE_ARGS}
                 COMMENT "running astyle"
         )
-    endif()
+    endif ()
 
-endif()
+endif ()
 
 # ------------------------------------------------------------------------------
 # Clang Tidy
 # ------------------------------------------------------------------------------
 
-if(ENABLE_CLANG_TIDY)
+if (ENABLE_CLANG_TIDY)
 
     find_program(CLANG_TIDY_BIN clang-tidy-4.0)
     find_program(RUN_CLANG_TIDY_BIN run-clang-tidy-4.0.py)
 
-    if(CLANG_TIDY_BIN STREQUAL "CLANG_TIDY_BIN-NOTFOUND")
+    if (CLANG_TIDY_BIN STREQUAL "CLANG_TIDY_BIN-NOTFOUND")
         message(FATAL_ERROR "unable to locate clang-tidy-4.0")
-    endif()
+    endif ()
 
-    if(RUN_CLANG_TIDY_BIN STREQUAL "RUN_CLANG_TIDY_BIN-NOTFOUND")
+    if (RUN_CLANG_TIDY_BIN STREQUAL "RUN_CLANG_TIDY_BIN-NOTFOUND")
         message(FATAL_ERROR "unable to locate run-clang-tidy-4.0.py")
-    endif()
+    endif ()
 
     list(APPEND RUN_CLANG_TIDY_BIN_ARGS
             -clang-tidy-binary ${CLANG_TIDY_BIN}
@@ -170,13 +170,13 @@ if(ENABLE_CLANG_TIDY)
             COMMENT "running clang tidy"
     )
 
-endif()
+endif ()
 
 # ------------------------------------------------------------------------------
 # CppCheck
 # ------------------------------------------------------------------------------
 
-if(ENABLE_CPPCHECK)
+if (ENABLE_CPPCHECK)
 
     list(APPEND CPPCHECK_CMAKE_ARGS
             "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
@@ -184,16 +184,16 @@ if(ENABLE_CPPCHECK)
 
     ExternalProject_Add(
             cppcheck
-            GIT_REPOSITORY      https://github.com/danmar/cppcheck.git
-            GIT_TAG             1.79
-            GIT_SHALLOW         1
-            CMAKE_ARGS          ${CPPCHECK_CMAKE_ARGS}
-            PREFIX              ${CMAKE_BINARY_DIR}/external/cppcheck/prefix
-            TMP_DIR             ${CMAKE_BINARY_DIR}/external/cppcheck/tmp
-            STAMP_DIR           ${CMAKE_BINARY_DIR}/external/cppcheck/stamp
-            DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/cppcheck/download
-            SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/cppcheck/src
-            BINARY_DIR          ${CMAKE_BINARY_DIR}/external/cppcheck/build
+            GIT_REPOSITORY https://github.com/danmar/cppcheck.git
+            GIT_TAG 1.79
+            GIT_SHALLOW 1
+            CMAKE_ARGS ${CPPCHECK_CMAKE_ARGS}
+            PREFIX ${CMAKE_BINARY_DIR}/external/cppcheck/prefix
+            TMP_DIR ${CMAKE_BINARY_DIR}/external/cppcheck/tmp
+            STAMP_DIR ${CMAKE_BINARY_DIR}/external/cppcheck/stamp
+            DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/external/cppcheck/download
+            SOURCE_DIR ${CMAKE_BINARY_DIR}/external/cppcheck/src
+            BINARY_DIR ${CMAKE_BINARY_DIR}/external/cppcheck/build
     )
 
     list(APPEND CPPCHECK_ARGS
@@ -215,42 +215,42 @@ if(ENABLE_CPPCHECK)
             COMMENT "running cppcheck"
     )
 
-endif()
+endif ()
 
 # ------------------------------------------------------------------------------
 # Coverage
 # ------------------------------------------------------------------------------
 
-if(ENABLE_COVERAGE)
+if (ENABLE_COVERAGE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftest-coverage")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
-endif()
+endif ()
 
 # ------------------------------------------------------------------------------
 # Google Sanitizers
 # ------------------------------------------------------------------------------
 
-if(ENABLE_ASAN)
+if (ENABLE_ASAN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-omit-frame-pointer")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=leak")
-endif()
+endif ()
 
-if(ENABLE_USAN)
+if (ENABLE_USAN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=undefined")
-endif()
+endif ()
 
-if(ENABLE_TSAN)
+if (ENABLE_TSAN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-ld=gold")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=thread")
-endif()
+endif ()
 
 # ------------------------------------------------------------------------------
 # Valgrind

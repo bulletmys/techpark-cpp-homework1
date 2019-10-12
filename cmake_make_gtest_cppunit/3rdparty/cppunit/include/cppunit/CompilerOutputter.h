@@ -9,9 +9,13 @@ CPPUNIT_NS_BEGIN
 
 
 class Exception;
+
 class SourceLine;
+
 class Test;
+
 class TestFailure;
+
 class TestResultCollector;
 
 /*! 
@@ -52,91 +56,106 @@ class TestResultCollector;
  * }
  * \endcode
  */
-class CPPUNIT_API CompilerOutputter : public Outputter
+class CPPUNIT_API CompilerOutputter
+
+: public Outputter
 {
 public:
-  /*! \brief Constructs a CompilerOutputter object.
-   * \param result Result of the test run.
-   * \param stream Stream used to output test result.
-   * \param locationFormat Error location format used by your compiler. Default
-   *                       to \c CPPUNIT_COMPILER_LOCATION_FORMAT which is defined
-   *                       in the configuration file. See setLocationFormat() for detail.
-   * \see setLocationFormat().
-   */
-  CompilerOutputter( TestResultCollector *result,
-                     OStream &stream,
-                     const std::string &locationFormat = CPPUNIT_COMPILER_LOCATION_FORMAT );
+/*! \brief Constructs a CompilerOutputter object.
+ * \param result Result of the test run.
+ * \param stream Stream used to output test result.
+ * \param locationFormat Error location format used by your compiler. Default
+ *                       to \c CPPUNIT_COMPILER_LOCATION_FORMAT which is defined
+ *                       in the configuration file. See setLocationFormat() for detail.
+ * \see setLocationFormat().
+ */
+CompilerOutputter( TestResultCollector
+*result,
+OStream &stream,
+const std::string &locationFormat = CPPUNIT_COMPILER_LOCATION_FORMAT
+);
 
-  /// Destructor.
-  virtual ~CompilerOutputter();
+/// Destructor.
+virtual ~
 
-  /*! \brief Sets the error location format.
-   * 
-   * Indicates the format used to report location of failed assertion. This format should
-   * match the one used by your compiler.
-   *
-   * The location format is a string in which the occurence of the following character
-   * sequence are replaced:
-   *
-   * - "%l" => replaced by the line number
-   * - "%p" => replaced by the full path name of the file ("G:\prg\vc\cppunit\MyTest.cpp")
-   * - "%f" => replaced by the base name of the file ("MyTest.cpp")
-   *
-   * Some examples:
-   *
-   * - VC++ error location format: "%p(%l):" => produce "G:\prg\MyTest.cpp(43):"
-   * - GCC error location format: "%f:%l:" => produce "MyTest.cpp:43:"
-   * 
-   * Thoses are the two compilers currently <em>supported</em> (gcc format is used if
-   * VC++ is not detected). If you want your compiler to be automatically supported by
-   * CppUnit, send a mail to the mailing list (preferred), or submit a feature request
-   * that indicates how to detect your compiler with the preprocessor (\#ifdef...) and
-   * your compiler location format.
-   */
-  void setLocationFormat( const std::string &locationFormat );
+CompilerOutputter();
 
-  /*! \brief Creates an instance of an outputter that matches your current compiler.
-   * \deprecated This class is specialized through parameterization instead of subclassing...
-   *             Use CompilerOutputter::CompilerOutputter instead.
-   */
-  static CompilerOutputter *defaultOutputter( TestResultCollector *result,
-                                              OStream &stream );
+/*! \brief Sets the error location format.
+ *
+ * Indicates the format used to report location of failed assertion. This format should
+ * match the one used by your compiler.
+ *
+ * The location format is a string in which the occurence of the following character
+ * sequence are replaced:
+ *
+ * - "%l" => replaced by the line number
+ * - "%p" => replaced by the full path name of the file ("G:\prg\vc\cppunit\MyTest.cpp")
+ * - "%f" => replaced by the base name of the file ("MyTest.cpp")
+ *
+ * Some examples:
+ *
+ * - VC++ error location format: "%p(%l):" => produce "G:\prg\MyTest.cpp(43):"
+ * - GCC error location format: "%f:%l:" => produce "MyTest.cpp:43:"
+ *
+ * Thoses are the two compilers currently <em>supported</em> (gcc format is used if
+ * VC++ is not detected). If you want your compiler to be automatically supported by
+ * CppUnit, send a mail to the mailing list (preferred), or submit a feature request
+ * that indicates how to detect your compiler with the preprocessor (\#ifdef...) and
+ * your compiler location format.
+ */
+void setLocationFormat(const std::string &locationFormat);
 
-  void write();
+/*! \brief Creates an instance of an outputter that matches your current compiler.
+ * \deprecated This class is specialized through parameterization instead of subclassing...
+ *             Use CompilerOutputter::CompilerOutputter instead.
+ */
+static CompilerOutputter *defaultOutputter(TestResultCollector * result,
+                                           OStream & stream);
 
-  void setNoWrap();
+void write();
 
-  void setWrapColumn( int wrapColumn );
+void setNoWrap();
 
-  int wrapColumn() const;
+void setWrapColumn(int wrapColumn);
 
-  virtual void printSuccess();
-  virtual void printFailureReport();
-  virtual void printFailuresList();
-  virtual void printStatistics();
-  virtual void printFailureDetail( TestFailure *failure );
-  virtual void printFailureLocation( SourceLine sourceLine );
-  virtual void printFailureType( TestFailure *failure );
-  virtual void printFailedTestName( TestFailure *failure );
-  virtual void printFailureMessage( TestFailure *failure );
+int wrapColumn() const;
+
+virtual void printSuccess();
+
+virtual void printFailureReport();
+
+virtual void printFailuresList();
+
+virtual void printStatistics();
+
+virtual void printFailureDetail(TestFailure *failure);
+
+virtual void printFailureLocation(SourceLine sourceLine);
+
+virtual void printFailureType(TestFailure *failure);
+
+virtual void printFailedTestName(TestFailure *failure);
+
+virtual void printFailureMessage(TestFailure *failure);
 
 private:
-  /// Prevents the use of the copy constructor.
-  CompilerOutputter( const CompilerOutputter &copy );
 
-  /// Prevents the use of the copy operator.
-  void operator =( const CompilerOutputter &copy );
+/// Prevents the use of the copy constructor.
+CompilerOutputter(const CompilerOutputter &copy);
 
-  virtual bool processLocationFormatCommand( char command, 
-                                             const SourceLine &sourceLine );
+/// Prevents the use of the copy operator.
+void operator=(const CompilerOutputter &copy);
 
-  virtual std::string extractBaseName( const std::string &fileName ) const;
+virtual bool processLocationFormatCommand(char command,
+                                          const SourceLine &sourceLine);
+
+virtual std::string extractBaseName(const std::string &fileName) const;
 
 private:
-  TestResultCollector *m_result;
-  OStream &m_stream;
-  std::string m_locationFormat;
-  int m_wrapColumn;
+TestResultCollector *m_result;
+OStream &m_stream;
+std::string m_locationFormat;
+int m_wrapColumn;
 };
 
 

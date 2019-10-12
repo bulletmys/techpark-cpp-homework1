@@ -12,18 +12,18 @@
 
 
 /// A Timer.
-class WinNtTimer
-{
+class WinNtTimer {
 public:
-  void start();
-  void finish();
+    void start();
 
-  double elapsedTime() const;
+    void finish();
+
+    double elapsedTime() const;
 
 private:
-  LONGLONG m_beginTime;
-  double m_elapsedTime;
-  bool m_isValid;
+    LONGLONG m_beginTime;
+    double m_elapsedTime;
+    bool m_isValid;
 };
 
 

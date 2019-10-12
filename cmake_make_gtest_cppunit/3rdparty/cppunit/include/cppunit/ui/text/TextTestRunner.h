@@ -10,12 +10,16 @@ CPPUNIT_NS_BEGIN
 
 
 class Outputter;
-class Test;
-class TestSuite;
-class TextOutputter;
-class TestResult;
-class TestResultCollector;
 
+class Test;
+
+class TestSuite;
+
+class TextOutputter;
+
+class TestResult;
+
+class TestResultCollector;
 
 
 /*!
@@ -60,41 +64,52 @@ class TestResultCollector;
  *
  * \see CompilerOutputter, XmlOutputter, TextOutputter.
  */
-class CPPUNIT_API TextTestRunner : public CPPUNIT_NS::TestRunner
+class CPPUNIT_API TextTestRunner
+
+: public CPPUNIT_NS::TestRunner
 {
 public:
-  TextTestRunner( Outputter *outputter =NULL );
+TextTestRunner( Outputter
+*
+outputter = NULL
+);
 
-  virtual ~TextTestRunner();
+virtual ~
 
-  bool run( std::string testPath ="",
-            bool doWait = false,
-            bool doPrintResult = true,
-            bool doPrintProgress = true );
+TextTestRunner();
 
-  void setOutputter( Outputter *outputter );
+bool run(std::string testPath = "",
+         bool doWait = false,
+         bool doPrintResult = true,
+         bool doPrintProgress = true);
 
-  TestResultCollector &result() const;
+void setOutputter(Outputter * outputter);
 
-  TestResult &eventManager() const;
+TestResultCollector &result() const;
+
+TestResult &eventManager() const;
 
 public: // overridden from TestRunner (to avoid hidden virtual function warning)
-  virtual void run( TestResult &controller,
-                    const std::string &testPath = "" );
+virtual void run(TestResult &controller,
+                 const std::string &testPath = "");
 
 protected:
-  virtual void wait( bool doWait );
-  virtual void printResult( bool doPrintResult );
+
+virtual void wait(bool doWait);
+
+virtual void printResult(bool doPrintResult);
 
 private:
-  // prohibit copying
-  TextTestRunner( const TextTestRunner& );
-  // prohibit copying
-  TextTestRunner& operator=( const TextTestRunner& );
 
-  TestResultCollector *m_result;
-  TestResult *m_eventManager;
-  Outputter *m_outputter;
+// prohibit copying
+TextTestRunner(const TextTestRunner &);
+
+// prohibit copying
+TextTestRunner &operator=(const TextTestRunner &);
+
+TestResultCollector *m_result;
+TestResult *m_eventManager;
+Outputter *m_outputter;
 };
 
 

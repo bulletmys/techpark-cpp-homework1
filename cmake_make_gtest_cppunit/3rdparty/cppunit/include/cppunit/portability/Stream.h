@@ -99,9 +99,9 @@ public:
 
    OStream &flush()
    {
-	   if ( buffer_ )
-		    buffer_->flush();
-	   return *this;
+       if ( buffer_ )
+            buffer_->flush();
+       return *this;
    }
 
    void setBuffer( StreamBuffer *buffer )
@@ -222,18 +222,18 @@ private:
 class OStringStream : public OStream
 {
 public:
-	OStringStream()
-		: OStream( &buffer_ )
-	{
-	}
+    OStringStream()
+        : OStream( &buffer_ )
+    {
+    }
 
-	std::string str() const
-	{
-		return buffer_.str();
-	}
+    std::string str() const
+    {
+        return buffer_.str();
+    }
 
 private:
-	StringStreamBuffer buffer_;
+    StringStreamBuffer buffer_;
 };
 
 
@@ -283,10 +283,10 @@ CPPUNIT_NS_END
 # include <sstream>
 # include <fstream>
 
-    CPPUNIT_NS_BEGIN
-    typedef std::ostringstream OStringStream;      // The standard C++ way
-    typedef std::ofstream OFileStream;
-    CPPUNIT_NS_END
+CPPUNIT_NS_BEGIN
+typedef std::ostringstream OStringStream;      // The standard C++ way
+typedef std::ofstream OFileStream;
+CPPUNIT_NS_END
 
 
 #elif CPPUNIT_HAVE_CLASS_STRSTREAM
@@ -297,50 +297,52 @@ CPPUNIT_NS_END
 #  include <strstream.h>
 # endif // CPPUNIT_HAVE_CLASS_STRSTREAM
 
-    CPPUNIT_NS_BEGIN
+CPPUNIT_NS_BEGIN
 
-    class OStringStream : public std::ostrstream 
+class OStringStream : public std::ostrstream
+{
+public:
+    std::string str()
     {
-    public:
-        std::string str()
-        {
 //            (*this) << '\0';
 //            std::string msg(std::ostrstream::str());
 //            std::ostrstream::freeze(false);
 //            return msg;
 // Alternative implementation that don't rely on freeze which is not
 // available on some platforms:
-            return std::string( std::ostrstream::str(), pcount() );
-        }
-    };
+        return std::string( std::ostrstream::str(), pcount() );
+    }
+};
 
-    CPPUNIT_NS_END
+CPPUNIT_NS_END
 #else // CPPUNIT_HAVE_CLASS_STRSTREAM
 #   error Cannot define CppUnit::OStringStream.
 #endif // #if defined( CPPUNIT_NO_STREAM )
-
 
 
 #if !defined( CPPUNIT_NO_STREAM )
 
 #include <iostream>
 
-    CPPUNIT_NS_BEGIN
+CPPUNIT_NS_BEGIN
 
-    typedef std::ostream OStream;
+typedef std::ostream
+OStream;
 
-    inline OStream &stdCOut() 
-    {
-        return std::cout;
-    }
+inline OStream &
 
-    inline OStream &stdCErr() 
-    {
-       return std::cerr;
-    }
+stdCOut() {
+    return std::cout;
+}
 
-    CPPUNIT_NS_END
-   
+inline OStream &
+
+stdCErr() {
+    return std::cerr;
+}
+
+CPPUNIT_NS_END
+
 #endif // #if !defined( CPPUNIT_NO_STREAM )
 
 #endif // CPPUNIT_PORTABILITY_STREAM_H_INCLUDED
