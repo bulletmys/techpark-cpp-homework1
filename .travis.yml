@@ -1,5 +1,5 @@
 language: cpp
-dist: bionic
+dist: xenial
 
 #
 # Build Dependencies
@@ -271,25 +271,6 @@ matrix:
         - make
         - make test
 
-    #
-    # Clang 3.8
-    #
-    - os: linux
-      env:
-        - TEST="Clang 3.8"
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-4.0
-          packages:
-            - clang-3.8
-            - gcc-6
-            - g++-6
-      script:
-        - cmake -DCMAKE_C_COMPILER=clang-3.8 -DCMAKE_CXX_COMPILER=clang++-3.8 ..
-        - make
-        - make test
 
     #
     # Clang 3.9

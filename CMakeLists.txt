@@ -4,7 +4,7 @@ project(techpatk_cpp_dz1)
 include(ExternalProject)
 find_package(Git REQUIRED)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #
 #add_subdirectory(lib/googletest-master)
@@ -13,7 +13,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #add_executable(test1 test/test.cpp)
 
-add_executable(techpatk_cpp_dz1 main.c)
+add_executable(techpatk_cpp_dz1 main.c main.h)
 list(APPEND CATCH_CMAKE_ARGS
         "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
         )
@@ -76,71 +76,6 @@ ExternalProject_Add(
         BINARY_DIR ${CMAKE_BINARY_DIR}/external/gsl/build
 )
 
-# ------------------------------------------------------------------------------
-# Astyle
-# ------------------------------------------------------------------------------
-
-if (ENABLE_ASTYLE)
-
-    list(APPEND ASTYLE_CMAKE_ARGS
-            "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
-            )
-
-    ExternalProject_Add(
-            astyle
-            GIT_REPOSITORY https://github.com/Bareflank/astyle.git
-            GIT_TAG v1.2
-            GIT_SHALLOW 1
-            CMAKE_ARGS ${ASTYLE_CMAKE_ARGS}
-            PREFIX ${CMAKE_BINARY_DIR}/external/astyle/prefix
-            TMP_DIR ${CMAKE_BINARY_DIR}/external/astyle/tmp
-            STAMP_DIR ${CMAKE_BINARY_DIR}/external/astyle/stamp
-            DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/external/astyle/download
-            SOURCE_DIR ${CMAKE_BINARY_DIR}/external/astyle/src
-            BINARY_DIR ${CMAKE_BINARY_DIR}/external/astyle/build
-    )
-
-    list(APPEND ASTYLE_ARGS
-            --style=1tbs
-            --lineend=linux
-            --suffix=none
-            --pad-oper
-            --unpad-paren
-            --break-closing-brackets
-            --align-pointer=name
-            --align-reference=name
-            --indent-preproc-define
-            --indent-switches
-            --indent-col1-comments
-            --keep-one-line-statements
-            --keep-one-line-blocks
-            --pad-header
-            --convert-tabs
-            --min-conditional-indent=0
-            --indent=spaces=4
-            --close-templates
-            --add-brackets
-            --break-after-logical
-            ${CMAKE_SOURCE_DIR}/include/*.h
-            ${CMAKE_SOURCE_DIR}/src/*.cpp
-            ${CMAKE_SOURCE_DIR}/test/*.cpp
-            )
-
-    if (NOT WIN32 STREQUAL "1")
-        add_custom_target(
-                format
-                COMMAND ${CMAKE_BINARY_DIR}/bin/astyle ${ASTYLE_ARGS}
-                COMMENT "running astyle"
-        )
-    else ()
-        add_custom_target(
-                format
-                COMMAND ${CMAKE_BINARY_DIR}/bin/astyle.exe ${ASTYLE_ARGS}
-                COMMENT "running astyle"
-        )
-    endif ()
-
-endif ()
 
 # ------------------------------------------------------------------------------
 # Clang Tidy
@@ -218,17 +153,6 @@ if (ENABLE_CPPCHECK)
 
 endif ()
 
-# ------------------------------------------------------------------------------
-# Coverage
-# ------------------------------------------------------------------------------
-
-if (ENABLE_COVERAGE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g ")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftest-coverage")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
-endif ()
 
 # ------------------------------------------------------------------------------
 # Google Sanitizers
