@@ -35,7 +35,8 @@ char *Input_string() {
                 return NULL;
             }
             if (buf.string) {
-                tmp = strcpy(tmp, buf.string);
+                //tmp = strcpy(tmp, buf.string);
+                tmp = memcpy(tmp, buf.string, (sizeof(*buf.string)));
                 free(buf.string);
             }
             buf.string = tmp;
