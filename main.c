@@ -141,7 +141,7 @@ Country *AddCountry(Country *countries, int *cur_num) {
 }
 
 
-int MAIN() {
+int main() {
     int num_of_countries = 6;
 
     Country *countries;
