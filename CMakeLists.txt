@@ -10,7 +10,6 @@ include_directories(lib/googletest-master/googlemock/include)
 add_executable(test1 test/test.cpp)
 add_executable(techpatk_cpp_dz1 main.c)
 
-add_test(test1 SortByDensity)
 
 find_program(CTEST_MEMORYCHECK_COMMAND NAMES valgrind)
 INCLUDE(Dart)
