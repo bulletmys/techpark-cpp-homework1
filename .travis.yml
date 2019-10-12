@@ -328,4 +328,3 @@ matrix:
         - cmake ..
         - make
         - make test
-
