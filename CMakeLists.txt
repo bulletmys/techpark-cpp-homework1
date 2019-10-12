@@ -14,7 +14,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #add_executable(test1 test/test.cpp)
 
 add_executable(techpatk_cpp_dz1 main.c main.h)
-
 list(APPEND CATCH_CMAKE_ARGS
         "-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
         )
@@ -135,12 +134,15 @@ if (ENABLE_CPPCHECK)
 
     list(APPEND CPPCHECK_ARGS
             --enable=warning,style,performance,portability,unusedFunction
-            --std=c++11
+            --std=c11
             --verbose
             --error-exitcode=1
-            --language=c++
+            --language=c
             -DMAIN=main
-            -I
+            -I ${CMAKE_SOURCE_DIR}/include
+            ${CMAKE_SOURCE_DIR}/include/*.h
+            ${CMAKE_SOURCE_DIR}/src/*.cpp
+            ${CMAKE_SOURCE_DIR}/test/*.cpp
             )
 
     add_custom_target(
