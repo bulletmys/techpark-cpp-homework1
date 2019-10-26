@@ -35,7 +35,8 @@ char *Input_string() {
                 return NULL;
             }
             if (buf.string) {
-                tmp = strcpy(tmp, buf.string);
+                //tmp = strcpy(tmp, buf.string);1
+                tmp = memcpy(tmp, buf.string, (sizeof(char)*buf.size));
                 free(buf.string);
             }
             buf.string = tmp;
@@ -65,7 +66,7 @@ int Input_int() {
     return result;
 }
 
-//int Compare(const void *x1, const void *x2) { Компаратор для qsort
+//int Compare(const void *x1, const void *x2) { //Компаратор для qsort
 //    float p_1 = (float) (*(Country *) x1).population / (*(Country *) x1).square;
 //    float p_2 = (float) (*(Country *) x2).population / (*(Country *) x2).square;
 //
@@ -110,7 +111,7 @@ void PrintCountries(Country *countries, int num_of_countries, int start) {
                countries[i].capital,
                countries[i].population,
                countries[i].square,
-               countries[i].population / countries[i].square);
+               countries[i].density);
     }
     printf("\n");
 }
@@ -132,6 +133,7 @@ Country *AddCountry(Country *countries, int *cur_num) {
         countries[i].population = Input_int();
         printf("Enter the area of the country (in sq. Km.)\n");
         countries[i].square = Input_int();
+        countries[i].density = countries[i].population / countries[i].square;
     }
 
     printf("\nNew data added:\n");
